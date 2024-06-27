@@ -1,0 +1,38 @@
+.card {
+    min-height: 87vh;
+    border-radius: 4.375rem !important;
+    /* border-top-left-radius: 4.375rem !important;
+    border-bottom-left-radius: 4.375rem !important; */
+}
+
+.login-img {
+    background-image: url('public/imgs/img1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-clip: content-box;
+    border-top-left-radius: 4.375rem !important;
+    border-bottom-left-radius: 4.375rem !important;
+    height: 87vh;
+}
+
+.login-body {
+    background-color: rgb(110, 73, 150);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-btns {
+    background-color: rgb(5 5 181) !important;
+    box-shadow: rgba(236, 233, 233, 0.24) 0px 3px 8px;
+}
+
+/* 
+input {
+    background-color: aqua !important;
+} */
+
+.login-body Form input::placeholder {
+    color: rgb(228, 217, 217) !important;
+    font-size: 14px;
+}
