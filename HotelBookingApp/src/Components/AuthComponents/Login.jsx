@@ -30,7 +30,7 @@ function Login() {
     return (
         <>
             <div className="container-fluid p-5">
-                <div className="card">
+                <div className="card card-container">
                     <div className="row">
                         <div className="col-6 login-img">
                         </div>
