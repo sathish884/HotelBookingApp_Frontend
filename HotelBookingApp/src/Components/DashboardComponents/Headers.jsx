@@ -1,40 +1,49 @@
 import React from 'react'
-import Home from '../HomeComponents/Home';
-import { Flex, Layout } from 'antd';
-const { Header, Footer, Sider, Content } = Layout;
-const headerStyle = {
-  textAlign: 'center',
-  color: '#fff',
-  height: 64,
-  paddingInline: 48,
-  lineHeight: '64px',
-  backgroundColor: 'black',
-};
-
-
-const footerStyle = {
-  textAlign: 'center',
-  color: '#fff',
-  backgroundColor: 'black',
-};
-const layoutStyle = {
-  overflow: 'hidden',
-  minHeight: '100vh'
-};
+import { Layout } from 'antd';
+import NavRouters from '../../Routers/NavRouters';
+import { BrowserRouter as Router } from 'react-router-dom';
+const { Header, Content, Footer, Sider } = Layout;
 
 function Headers() {
 
-
   return (
-    <>
-      <Layout style={layoutStyle}>
-        <Header style={headerStyle}>Header</Header>
-           <Home />
-        <Footer style={footerStyle}>Footer</Footer>
-      </Layout>
+    <Router>
+      <Layout style={{ minHeight: '100vh' }}>
+        <Header
+          style={{
+            color:'white',
+            position: 'sticky',
+            top: 0,
+            zIndex: 1,
+            width: '100%',
+            display: 'flex',
+            alignItems: 'center',
+          }}
+        >
+        </Header>
 
-    </>
-  )
+
+        <NavRouters />
+
+
+        <Footer
+          style={{
+            backgroundColor: '#001529',
+            color:'white',
+            position: 'fixed',
+            bottom: 0,
+            zIndex: 1,
+            width: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent:'center'
+          }}
+        >
+          Ant Design ©{new Date().getFullYear()} Created by Ant UED
+        </Footer>
+      </Layout>
+    </Router>
+  );
 }
 
 export default Headers

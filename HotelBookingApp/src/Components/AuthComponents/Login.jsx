@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { GoogleOutlined, FacebookOutlined } from '@ant-design/icons';
 import { AutoComplete, Cascader, Button, Checkbox } from 'antd';
@@ -27,6 +27,7 @@ function Login() {
         document.getElementById("createCloseModalButton").click();
     };
 
+
     return (
         <>
             <div className="container-fluid p-5">
@@ -38,7 +39,7 @@ function Login() {
                             <Formik
                                 initialValues={initialValues}
                                 validationSchema={validationSchema}
-                                onSubmit={onSubmit}
+                              onSubmit={onSubmit}
                             >
                                 <Form>
 
@@ -90,7 +91,7 @@ function Login() {
 
                                     <div className="row mb-5">
                                         <div className="col">
-                                            <button type="submit" className="btn btn-primary login-btns" style={{ width: "100%" }}>Login</button>
+                                            <button type="submit" className="btn btn-primary login-btns" style={{ width: "100%" }} onClick={() => validateInputs()}>Login</button>
                                         </div>
                                     </div>
 
