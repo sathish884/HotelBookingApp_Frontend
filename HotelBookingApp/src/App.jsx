@@ -1,6 +1,10 @@
 import Login from './Components/AuthComponents/Login'
 import Headers from './Components/DashboardComponents/Headers'
-import Hotel from './Components/HomeComponents/Hotel'
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Layout } from 'antd';
+import NavRouters from './Routers/NavRouters';
+import Footers from './Components/DashboardComponents/Footers';
+import 'leaflet/dist/leaflet.css';
 
 function App() {
 
@@ -8,8 +12,18 @@ function App() {
   return (
     <>
       {/* <Login /> */}
-      <Headers />
-      {/* <Hotel/> */}
+
+      <Router>
+        <Layout style={{ minHeight: '100vh' }}>
+
+          <Headers />
+
+          <NavRouters />
+
+          <Footers />
+
+        </Layout>
+      </Router>
     </>
   )
 }

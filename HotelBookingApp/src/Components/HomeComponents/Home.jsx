@@ -71,7 +71,7 @@ function Home() {
             </div>
           </div>
 
-          <div className="row" style={{width:'100% !important'}}>
+          <div className="row">
             <div className="col-2" style={{ backgroundColor: 'lightcoral', minHeight: '30rem' }}></div>
             <div className="col-10 p-5" style={{ backgroundColor: 'lightblue', minHeight: '30rem' }}>
               <Badge.Ribbon text="Hippies" color="red">
