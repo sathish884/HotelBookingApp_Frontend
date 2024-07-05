@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { Layout, Flex, Rate, Badge, Avatar, Space, Form, Input, Button, Select, DatePicker } from 'antd';
-import { StarFilled, WifiOutlined } from '@ant-design/icons'
+import { Layout, Spin, Badge, Avatar, Space, Form, Input, Button, Select, DatePicker } from 'antd';
+import { StarFilled, WifiOutlined, LoadingOutlined } from '@ant-design/icons'
 import FormItem from 'antd/es/form/FormItem';
 import { useNavigate } from 'react-router-dom';
 const { Content } = Layout;
@@ -25,8 +25,13 @@ function Home() {
   };
 
   const navigate = useNavigate()
+
+  const [loading, setLoading] = useState(false);
+
   const handleClick = () => {
+    setLoading(true)
     navigate('hotel')
+    
   }
 
   return (
@@ -74,11 +79,14 @@ function Home() {
           <div className="row">
             <div className="col-2" style={{ backgroundColor: 'lightcoral', minHeight: '30rem' }}></div>
             <div className="col-10 p-5" style={{ backgroundColor: 'lightblue', minHeight: '30rem' }}>
+
               <Badge.Ribbon text="Hippies" color="red">
                 <div className="card mb-3" style={{ maxWidth: "100%" }}>
+                  {loading && <Spin size="large" />}
                   <div className="row g-0">
                     <div className="col-md-4" style={{ display: 'flex', flexDirection: 'column', gap: "10px", padding: '5px' }}>
                       <div>
+
                         <img src="imgs/img1.jpg" className="img-fluid rounded" alt="..." style={{ width: '100%', height: "200px" }} />
                       </div>
                       <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: "center", gap: '10px' }}>
@@ -118,6 +126,7 @@ function Home() {
                   </div>
                 </div>
               </Badge.Ribbon>
+
             </div>
           </div>
         </Content>

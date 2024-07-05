@@ -2,9 +2,6 @@
     position: relative;
 }
 
-.row{
-    --mdb-gutter-x: 0rem !important;
-}
 
 .filter-form {
     width: 100%;

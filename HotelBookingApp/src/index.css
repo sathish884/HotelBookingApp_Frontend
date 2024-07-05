@@ -4,11 +4,17 @@ body{
     box-sizing: border-box;
 }
 
+.row{
+    --bs-gutter-x: 0rem !important;
+}
+
+.card{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
 .card-container {
     min-height: 87vh;
     border-radius: 4.375rem !important;
-    /* border-top-left-radius: 4.375rem !important;
-    border-bottom-left-radius: 4.375rem !important; */
 }
 
 .login-img {

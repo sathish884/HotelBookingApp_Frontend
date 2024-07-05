@@ -4,6 +4,8 @@ import { StarFilled, WifiOutlined } from '@ant-design/icons';
 import './Hotel.css';
 import Room from './Room';
 import Map from './Map';
+import PopupModels from './PopupModels';
+import RatingReviews from './RatingReviews';
 
 
 const contentStyle = {
@@ -13,7 +15,10 @@ const contentStyle = {
 
 function Hotel() {
 
-    const [openModal, setOpenModal] = useState(false)
+    const [openModal, setOpenModal] = useState(false);
+    const [isModelOpen, setIsModalOpen] = useState(false);
+    const [readMoreModel, setReadMoreModel] = useState(false);
+
     return (
         <>
             <Layout>
@@ -69,11 +74,11 @@ function Hotel() {
                     <div className="row">
                         <div className="col pt-3 px-5">
                             <h4 className='pb-3'>Amenities</h4>
-                            <ul className='amenities' style={{ display: 'flex', gap: '20px', listStyleType: 'none' }}>
-                                <li style={{ marginLeft: '-30px' }}><WifiOutlined />&nbsp;&nbsp;Free Wifi</li>
-                                <li><i className="bi bi-cup-hot"></i>&nbsp;&nbsp;Geyser</li>
-                                <li><i className="bi bi-battery-charging"></i>&nbsp;&nbsp;Power Backup</li>
-                            </ul>
+                            <div className='row' style={{ gap: '15px' }}>
+                                <div className="col-2 card px-3 py-3" style={{ width: '10rem' }}><span className='amenities-icons-list-items'><i className="bi bi-wifi amenities-icons"></i>&nbsp;&nbsp;Free Wifi</span></div>
+                                <div className="col-2 card px-3 py-3" style={{ width: '10rem' }}> <span className='amenities-icons-list-items'> <i className="bi bi-cup-hot amenities-icons"></i>&nbsp;&nbsp;Geyser</span></div>
+                                <div className="col-2 card px-3 py-3" style={{ width: '10rem' }}> <span className='amenities-icons-list-items'><i className="bi bi-battery-charging amenities-icons"></i>&nbsp;&nbsp;Power Backup</span></div>
+                            </div>
                         </div>
 
                     </div>
@@ -93,7 +98,7 @@ function Hotel() {
                                     <div className="card-header room-card-header">
                                         <p className='text-center'>Start your day on a delicious note by pre-booking breakfast with your stay! Preferred by 90% customers</p>
                                     </div>
-                                    <div className="card-body">
+                                    <div className="card-body room-card-body">
                                         <div style={{ width: "30%" }}>
                                             <h4>Standard Queen Room</h4>
                                             <p>(189 sq.ft | City View | Queen Bed)</p>
@@ -103,6 +108,7 @@ function Hotel() {
                                                 <li>Iron/Ironing Board</li>
                                                 <li>Wi-Fi</li>
                                             </ul>
+
                                             <div>
                                                 <a onClick={() => setOpenModal(true)} style={{ color: 'blue' }}>More details</a>
                                                 <Room openModal={openModal} setOpenModal={setOpenModal}></Room>
@@ -141,38 +147,58 @@ function Hotel() {
                     </div>
 
                     <div className="row">
-                        <div className='col px-5 pt-5'>
+                        <div className='col px-5 py-5'>
                             <h4 className='pb-3'>Hotel Policies</h4>
-                            <div className='hotel-policies-card'>
-                                <div className="card" style={{ width: "10rem" }}>
-                                    <div className="card-header">Check In</div>
-                                    <div className="card-body"><h5>12:00 PM</h5></div>
-                                </div>
-                                <div className="card" style={{ width: "10rem" }}>
-                                    <div className="card-header">
-                                        Check Out
+                            <div className="card px-5 pt-5 pb-3 border border-black">
+                                <div><h6><span><i class="bi bi-clock"></i>&nbsp;&nbsp;Check-in: 2PM</span>&nbsp; - &nbsp;<span><i class="bi bi-clock"></i>&nbsp;&nbsp;Check-out:12PM</span></h6></div>
+                                <hr />
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                    <div>
+                                        <ul>
+                                            <li>Couple, Bachelor Rules &nbsp; <button className='btn btn-outline-success px-2 py-0'>Couple Friendly</button> <br />Unmarried couples/guests with Local IDs are allowed. </li>
+                                            <li>Guests below 18 years of age are not allowed at the property.</li>
+                                            <li>Passport, Aadhar, Driving License and Govt. ID are accepted as ID proof(s)</li>
+                                        </ul>
                                     </div>
-                                    <div className="card-body"><h5>11:00 AM</h5></div>
+                                    <div>
+                                        <ul>
+                                            <li>Pets are not allowed.</li>
+                                            <li>Outside food is not allowed</li>
+                                            <li>Smoking within the premises is not allowed</li>
+                                            <li>Optional : Rollaway bed fee: INR 1200.0 per night</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div className='pt-3 d-flex' style={{ justifyContent: 'center', alignItems: 'center', gap: '15px' }}>
+                                    <button type="button" className="btn btn-outline-primary" onClick={() => setIsModalOpen(true)}>Restrications</button>
+                                    <PopupModels isModelOpen={isModelOpen} setIsModalOpen={setIsModalOpen} readMoreModel={readMoreModel} setReadMoreModel={setReadMoreModel} />
+                                    <button type="button" className="btn btn-outline-dark" onClick={() => setIsModalOpen(true)}>Gust Profile</button>
+                                    <button type="button" class="btn btn-outline-secondary" onClick={() => setIsModalOpen(true)}>ID Proof Related</button>
+                                    <a style={{ color: 'blue' }} onClick={() => setReadMoreModel(true)}>Read All Property Rules</a>
                                 </div>
                             </div>
-                            <div>
-                                <ul className='hotel-policies-list'>
-                                    <li>Couples are welcome</li>
-                                    <li>Guests can check in using any local or outstation ID proof (PAN card not accepted).</li>
-                                    <li>This hotel is serviced under the trade name of Hotel Royal Plaza as per quality standards of OYO</li>
-                                </ul>
-                            </div>
+                        </div>
+                    </div>
+
+                    <div className="row mb-5">
+                        <div className="className='col px-5 pt-5'">
+                            <h4 className='mb-3'>Location</h4>
+                            <Map />
                         </div>
                     </div>
 
                     <div className="row">
                         <div className="className='col px-5 pt-5'">
-                            <h4 className='mb-3'>Location</h4>
-<Map/>
-                            
 
+
+
+                            <h4 className='mb-3'>Review and Ratings</h4>
+                            <div className="card p-5" style={{backgroundColor:'#d8ddd0'}}>
+                                <RatingReviews />
+                            </div>
                         </div>
                     </div>
+
                 </div>
 
             </Layout>

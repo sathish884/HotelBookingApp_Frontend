@@ -16,7 +16,7 @@ const customIcon = new L.Icon({
 function Map() {
     return (
         <>
-            <MapContainer center={[13.0843, 80.2705]} zoom={13} scrollWheelZoom={false} style={{ height: "500px", width: "100%", border: '2px solid gray', borderRadius: '5px' }}>
+            <MapContainer center={[13.0843, 80.2705]} zoom={13} scrollWheelZoom={false} style={{ height: "500px", width: "100%", border: '2px solid gray', borderRadius: '5px', zIndex: '1'}}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

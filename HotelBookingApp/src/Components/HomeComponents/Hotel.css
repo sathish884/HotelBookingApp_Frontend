@@ -1,14 +1,12 @@
-.card{
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
+
 
 .room-card-header{
     background: rgb(9,9,121);
     background: linear-gradient(90deg, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 49%, rgba(9,9,121,1) 100%);
     color:white;
 }
-.card-body{
-    display: flex;
+.room-card-body{
+  display: flex;
 }
 
 /* CSS */
@@ -33,20 +31,6 @@
   touch-action: manipulation;
   overflow: hidden;
 }
-
-/* .book-btn:before {
-  background-color: initial;
-  background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
-  border-radius: 125px;
-  content: "";
-  height: 10%;
-  left: 4%;
-  opacity: .5;
-  position: absolute;
-  top: 0;
-  transition: all .3s;
-  /* width: 80%; 
-} */
 
 .book-btn:hover {
   box-shadow: rgb(86, 2, 243) 0 3px 15px inset, rgba(91, 9, 241, 0.1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
@@ -74,6 +58,16 @@
     font-size: 16px;
 }
 
+.amenities-icons-list-items{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.amenities-icons{
+  font-size: 20px;
+  font-weight: bolder;
+  color: rgb(0, 0, 0);
+}
 
 
 @media (min-width: 768px) {
