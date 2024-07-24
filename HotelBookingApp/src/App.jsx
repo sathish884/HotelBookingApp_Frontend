@@ -11,15 +11,15 @@ function App() {
 
   return (
     <>
-      {/* <Login /> */}
+
 
       <Router>
         <Layout style={{ minHeight: '100vh' }}>
 
+          {/* <Login /> */}
+
           <Headers />
-
           <NavRouters />
-
           <Footers />
 
         </Layout>

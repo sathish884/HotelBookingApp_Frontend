@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { Layout, Button, Modal, Image } from 'antd'
+import { Layout, Button, Modal, Image, Rate, Badge, Avatar } from 'antd'
 import { StarFilled, WifiOutlined } from '@ant-design/icons';
 import './Hotel.css';
-import Room from './Room';
-import Map from './Map';
-import PopupModels from './PopupModels';
-import RatingReviews from './RatingReviews';
+import Room from '../Home_Components/Room';
+import Map from '../Home_Components/Map';
+import PopupModels from '../Home_Components/PopupModels';
+import RatingReviews from '../Home_Components/RatingReviews';
+import { Link } from 'react-router-dom';
 
 
 const contentStyle = {
@@ -65,14 +66,22 @@ function Hotel() {
 
                 <div className='' style={{ padding: '20px 250px', display: "flex", flexDirection: 'column' }}>
                     <div className="row">
-                        <div className='col pt-5 px-5 text-center'>
-                            <h4>OYO Townhouse Royal Plaza Koyambedu</h4>
-                            <p><i className="bi bi-geo-alt-fill"></i>&nbsp;&nbsp;3,E Road,Thiruvalluvar road,Koyambedu Chennai, Chennai</p>
-
+                        <div className='col py-5 px-5 text-center' style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+                            <div>
+                                <h4>OYO Townhouse Royal Plaza Koyambedu</h4>
+                                <p><i className="bi bi-geo-alt-fill"></i>&nbsp;&nbsp;3,E Road,Thiruvalluvar road,Koyambedu Chennai, Chennai</p>
+                            </div>
+                            <span>
+                                <Badge>
+                                    <Avatar shape="square" style={{ backgroundColor: '#1c1c8f', width: '60px' }}><span style={{ fontSize: '20px', padding: '5px' }}>4.3 / 5&nbsp;</span></Avatar>
+                                </Badge>&nbsp;&nbsp;
+                                <Rate allowHalf defaultValue={4}></Rate>
+                            </span>
                         </div>
                     </div>
+
                     <div className="row">
-                        <div className="col pt-3 px-5">
+                        <div className="col py-3 px-5">
                             <h4 className='pb-3'>Amenities</h4>
                             <div className='row' style={{ gap: '15px' }}>
                                 <div className="col-2 card px-3 py-3" style={{ width: '10rem' }}><span className='amenities-icons-list-items'><i className="bi bi-wifi amenities-icons"></i>&nbsp;&nbsp;Free Wifi</span></div>
@@ -80,19 +89,18 @@ function Hotel() {
                                 <div className="col-2 card px-3 py-3" style={{ width: '10rem' }}> <span className='amenities-icons-list-items'><i className="bi bi-battery-charging amenities-icons"></i>&nbsp;&nbsp;Power Backup</span></div>
                             </div>
                         </div>
-
                     </div>
+
                     <div className="row">
-                        <div className='col pt-3 px-5'>
+                        <div className='col py-3 px-5'>
                             <h4 className='pb-3'>About this OYO</h4>
                             <p style={{ fontSize: '16px' }}>OYO Townhouse is based on the needs of the millennial traveler. Every single element of the hotel – from the breakfast menu to the booking process has been re-engineered for comfort, efficiency, convenience and affordability. Each Townhouse is designed to complement its neighborhood.</p>
                         </div>
                     </div>
 
                     <div className="row">
-                        <div className='col pt-3 px-5'>
+                        <div className='col py-3 px-5'>
                             <h4 className='pb-3'>Choose Your Room</h4>
-
                             <div style={{ display: 'flex', justifyContent: 'center' }}>
                                 <div className="card" >
                                     <div className="card-header room-card-header">
@@ -108,7 +116,6 @@ function Hotel() {
                                                 <li>Iron/Ironing Board</li>
                                                 <li>Wi-Fi</li>
                                             </ul>
-
                                             <div>
                                                 <a onClick={() => setOpenModal(true)} style={{ color: 'blue' }}>More details</a>
                                                 <Room openModal={openModal} setOpenModal={setOpenModal}></Room>
@@ -129,7 +136,6 @@ function Hotel() {
                                                 <Image style={{ width: '20rem', height: "15rem", float: 'right' }} src="https://images.oyoroomscdn.com/uploads/hotel_image/108887/large/2fcf96d7ee2d0b34.jpg" />
                                             </Image.PreviewGroup>
                                         </div>
-
                                     </div>
                                     <div className="card-footer text-body-secondary" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                         <div>
@@ -138,7 +144,7 @@ function Hotel() {
                                             <p></p>
                                         </div>
                                         <div>
-                                            <a href="#" className="btn btn-success book-btn">Book Now</a>
+                                            <Link href="#" className="btn btn-success book-btn" to={'/booking'}>Book Now</Link>
                                         </div>
                                     </div>
                                 </div>
@@ -181,26 +187,22 @@ function Hotel() {
                     </div>
 
                     <div className="row mb-5">
-                        <div className="className='col px-5 pt-5'">
+                        <div className="className='col px-5 py-5'">
                             <h4 className='mb-3'>Location</h4>
                             <Map />
                         </div>
                     </div>
 
                     <div className="row">
-                        <div className="className='col px-5 pt-5'">
-
-
-
+                        <div className="className='col px-5 py-5'">
                             <h4 className='mb-3'>Review and Ratings</h4>
-                            <div className="card p-5" style={{backgroundColor:'#d8ddd0'}}>
+                            <div className="card p-5" style={{ backgroundColor: '#d8ddd0' }}>
                                 <RatingReviews />
                             </div>
                         </div>
                     </div>
 
                 </div>
-
             </Layout>
         </>
     )
