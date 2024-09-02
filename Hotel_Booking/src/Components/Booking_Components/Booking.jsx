@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { getSingleRoom } from '../../Services/Api';
 import './Booking.css';
 import Loader from '../../Utilits/Loader';
@@ -8,6 +8,11 @@ import Error from '../../Utilits/Error';
 function Booking() {
 
     const { roomid } = useParams();
+
+    const location = useLocation();
+    const { fromDate, toDate } = location.state;
+
+    console.log('Booking', fromDate, toDate);
 
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
@@ -46,8 +51,8 @@ function Booking() {
                                 <hr />
                                 <b>
                                     <p>Name :</p>
-                                    <p>From Date :</p>
-                                    <p>To Date :</p>
+                                    <p>From Date : {fromDate}</p>
+                                    <p>To Date : {toDate}</p>
                                     <p>Max Count : {room.maxCount}</p>
                                 </b>
                             </div>

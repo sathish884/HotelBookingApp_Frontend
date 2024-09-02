@@ -39,7 +39,7 @@ function Login() {
     const [resOtp, setResOtp] = useState(null)
     const [userOtp, setUserOtp] = useState(null)
 
-   // const navigate = useNavigate()
+    // const navigate = useNavigate()
 
     const handleClose = () => setShow(false);
 
@@ -65,7 +65,8 @@ function Login() {
                         JSON.stringify(response.data.token)
                     );
                     setShow(false);
-                    window.location.href = '/hotel'
+                    //   window.location.href = '/hotel'
+                    document.location.href = '/hotel'
                 }
             } catch (error) {
                 console.log(error.message);

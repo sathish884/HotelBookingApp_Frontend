@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import './Room.css'
 import { Button, Modal, Carousel } from 'react-bootstrap';
+import { useLocale } from 'antd/es/locale';
 
-function Room({ rooms }) {
+function Room({ rooms, fromdate, todate }) {
 
     const navigate = useNavigate();
 
@@ -12,10 +13,13 @@ function Room({ rooms }) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const handleBookingRoom = (id) => {
-        navigate(`/booking-room/${id}`);
+    const handleBookingRoom = (id, fromdate, todate) => {
+        navigate(`/booking-room/${id}`, { state: { fromDate: fromdate, toDate: todate } });
     };
+
+    console.log('Room', fromdate, todate);
     
+
     return (
         <>
             <div className="row bs">
@@ -32,7 +36,7 @@ function Room({ rooms }) {
                     <div style={{ float: 'right' }}>
                         <button
                             className='btn bg-dark text-white'
-                            onClick={() => handleBookingRoom(rooms._id)}>
+                            onClick={() => handleBookingRoom(rooms._id, fromdate, todate)}>
                             Book Now
                         </button>
                         <Link to={'/hotel'}> <button className='btn bg-dark text-white' onClick={handleShow}>View Details</button></Link>
