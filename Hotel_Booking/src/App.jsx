@@ -8,6 +8,10 @@ import Booking from './Components/Booking_Components/Booking';
 import Login from './Components/Auth_Components/Login';
 import Register from './Components/Auth_Components/Register';
 import Footers from './Components/Layout_Components/Footers';
+import AccountActivated from './Utilits/AccountActivated';
+import ForgetPassword from './Components/Auth_Components/ForgetPassword';
+import ResetPassword from './Components/Auth_Components/ResetPassword';
+import TokenVerify from './Components/Auth_Components/TokenVerify';
 
 function App() {
   return (
@@ -17,8 +21,14 @@ function App() {
         <Routes>
           <Route path='/hotel' exact element={<Hotel />} />
           <Route path='/booking-room/:roomid' exact element={<Booking />} />
+
+          {/* User authentication */}
           <Route path='/register' element={<Register />} />
           <Route path='/login' element={<Login />} />
+          <Route path="/activate/:token" element={<AccountActivated />} />
+          <Route path="/forgot-password" element={<ForgetPassword />} />
+          <Route path='/verify-token' element={<TokenVerify />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
         </Routes>
         <Footers />
       </Layout>

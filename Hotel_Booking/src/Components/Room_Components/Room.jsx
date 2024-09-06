@@ -4,7 +4,7 @@ import './Room.css'
 import { Button, Modal, Carousel } from 'react-bootstrap';
 import { useLocale } from 'antd/es/locale';
 
-function Room({ rooms, fromdate, todate }) {
+function Room({ rooms, fromdate, todate, difference }) {
 
     const navigate = useNavigate();
 
@@ -13,12 +13,10 @@ function Room({ rooms, fromdate, todate }) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const handleBookingRoom = (id, fromdate, todate) => {
-        navigate(`/booking-room/${id}`, { state: { fromDate: fromdate, toDate: todate } });
+    const handleBookingRoom = (id, fromdate, todate, difference) => {
+        navigate(`/booking-room/${id}`, { state: { fromDate: fromdate, toDate: todate, days:difference } });
     };
 
-    console.log('Room', fromdate, todate);
-    
 
     return (
         <>
@@ -36,7 +34,7 @@ function Room({ rooms, fromdate, todate }) {
                     <div style={{ float: 'right' }}>
                         <button
                             className='btn bg-dark text-white'
-                            onClick={() => handleBookingRoom(rooms._id, fromdate, todate)}>
+                            onClick={() => handleBookingRoom(rooms._id, fromdate, todate, difference)}>
                             Book Now
                         </button>
                         <Link to={'/hotel'}> <button className='btn bg-dark text-white' onClick={handleShow}>View Details</button></Link>

@@ -1,0 +1,77 @@
+
+
+.room-card-header{
+    background: rgb(9,9,121);
+    background: linear-gradient(90deg, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 49%, rgba(9,9,121,1) 100%);
+    color:white;
+}
+.room-card-body{
+  display: flex;
+}
+
+/* CSS */
+.book-btn {
+  background-color: #e70450;
+  border: 0;
+  border-radius: 56px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: system-ui,-apple-system,system-ui,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  outline: 0;
+  padding: 12px 15px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  overflow: hidden;
+}
+
+.book-btn:hover {
+  box-shadow: rgb(86, 2, 243) 0 3px 15px inset, rgba(91, 9, 241, 0.1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+  transform: scale(1.05);
+}
+
+.hotel-policies-card{
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    margin-bottom: 35px;
+}
+.hotel-policies-card .card .card-header{
+    background: rgb(121,9,111);
+    background: linear-gradient(90deg, rgba(121,9,111,1) 0%, rgba(255,0,91,1) 49%, rgba(121,9,111,1) 100%);
+    color: white;
+    text-align: center;
+}
+
+.hotel-policies-card .card .card-body{
+  margin: auto;
+}
+
+.amenities, .hotel-policies-list{
+    font-size: 16px;
+}
+
+.amenities-icons-list-items{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.amenities-icons{
+  font-size: 20px;
+  font-weight: bolder;
+  color: rgb(0, 0, 0);
+}
+
+
+@media (min-width: 768px) {
+  .book-btn {
+    padding: 16px 48px;
+  }
+}

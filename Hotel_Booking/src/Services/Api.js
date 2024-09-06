@@ -34,12 +34,25 @@ export const getSingleRoom = async (id) => {
     }
 }
 
+
+// User Registeration
+export const bookingRooms = async (body) => {
+    try {
+        const response = await apiClient.post('/booking-room', body);
+        return response;
+    } catch (error) {
+        throw error;
+    }
+}
+
+
+
 // ---------------------- User Authentication ------------------------
 
 // User Registeration
 export const registerUser = async (body) => {
     try {
-        const response = await apiClient.post('/signup', body);
+        const response = await apiClient.post('/registerUser', body);
         return response;
     } catch (error) {
         throw error;
@@ -65,4 +78,34 @@ export const otpVerify = async (body) => {
         throw error;
     }
 }
+
+// Forget password
+export const forgetPassword = async ({ email }) => {
+    try {
+        const response = await apiClient.post('/forget-password', { email });
+        return response;
+    } catch (error) {
+        throw error;
+    }
+}
+
+// Token verify
+export const tokenVerify = async (body) => {
+    try {
+        const response = await apiClient.post('/tokenverify', body);
+        return response;
+    } catch (error) {
+        throw error;
+    }
+}
+
+// Reset password
+export const resetPassword = async (body) => {
+    try {
+        const response = await apiClient.post('/reset-passsword', body);
+        return response.data;
+    } catch (error) {
+        throw error;
+    }
+};
 

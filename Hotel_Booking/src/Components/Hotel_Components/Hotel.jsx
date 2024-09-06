@@ -17,54 +17,48 @@ function Hotel() {
     const [todate, setToDate] = useState();
 
     useEffect(() => {
-        getList()
+        const getList = async () => {
+            try {
+                setLoading(true);
+                const response = await getRoomList();
+                setRoomList(response.data);
+                setLoading(false);
+            } catch (error) {
+                setLoading(false)
+                setError(error.response.data)
+            }
+        }
+        getList();
     }, []);
 
-    const getList = async () => {
-        try {
-            setLoading(true)
-            const response = await getRoomList();
-
-            console.log(response.data);
-
-            if (response.status === 200) {
-                setRoomList(response.data);
-                setLoading(false)
-            }
-        } catch (error) {
-            setError(true)
-            console.log(error.message);
-            setLoading(false)
-        }
-    }
 
     const filterByDate = (dates) => {
-        console.log(dates);
 
         if (dates && dates.length === 2) {
-            const fromDate = moment(dates[0]).format('DD-MM-YYYY');
-            const toDate = moment(dates[1]).format('DD-MM-YYYY');
-
-            console.log('from', fromDate);
-            console.log('to', toDate);
-
+            const startDate = dates[0].$d
+            const endDate = dates[1].$d
+            const fromDate = moment(startDate).format('DD-MM-YYYY');
+            const toDate = moment(endDate).format('DD-MM-YYYY');
+            setFromDate(fromDate);
+            setToDate(toDate);
         } else {
             console.error('Invalid dates input:', dates);
         }
     };
 
-
     return (
         <>
-            <div className='container'>
+            <div className="container-fluid d-flex justify-content-center align-items-center p-5" style={{ minHeight: '60vh', flexDirection: 'column' }}>
 
-                <div className="row mt-5">
+                <div className="row justify-content-center w-100">
+                    {error ? (<Error error={error} />) : ""}
+
                     <div className="col-md-3">
-                        <RangePicker onChange={filterByDate} />
+                        <RangePicker format={'DD-MM-YYYY'} onChange={filterByDate} />
                     </div>
                 </div>
 
-                <div className="row justify-content-center mt-5">
+                <div className="row justify-content-center w-100">
                     {loading ? (<Loader />) : roomList.length > 1 ? (roomList.map((room, index) => {
                         return <div className="col-md-9 mb-5" key={index}>
                             <Room rooms={room} fromdate={fromdate} todate={todate} />

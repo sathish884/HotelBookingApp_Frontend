@@ -25,7 +25,7 @@ function Footers() {
                             <p>Download OYO app for exciting offers.</p>
                             <div style={{ display: 'flex', justifyContent: 'center', gap: '20px' }}>
                                 <button type="button" className="btn btn-secondary"><i class="bi bi-apple" style={{ fontSize: '20px', color: 'black' }}></i>&nbsp;<span style={{ fontSize: '12px' }}>Download on the <br /><span style={{ fontSize: '18px' }}> App Store</span></span></button>
-                                <button type="button" className="btn btn-secondary"><img src="imgs/google-play.webp" alt="" width={20} height={20} />&nbsp;<span style={{ fontSize: '12px' }}>Get it on <br /><span style={{ fontSize: '18px' }}>Google Play</span></span></button>
+                                <button type="button" className="btn btn-secondary"><img src="src/assets/imgs/google-play.webp" alt="" width={20} height={20} />&nbsp;<span style={{ fontSize: '12px' }}>Get it on <br /><span style={{ fontSize: '18px' }}>Google Play</span></span></button>
                             </div>
                         </div>
                     </Col>

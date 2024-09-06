@@ -1,10 +1,10 @@
 import React from 'react'
 
-function Error() {
+function Error({error}) {
     return (
         <>
-            <div className="alert alert-danger" role="alert">
-                Somthink went wrong, please try again later!
+            <div className="alert alert-danger text-center mx-auto" role="alert" style={{ maxWidth: '35rem', color: 'red' }}>
+               <b>{error ? error.message : ""}</b> 
             </div>
         </>
     )

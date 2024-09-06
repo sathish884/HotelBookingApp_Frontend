@@ -33,7 +33,6 @@ function Register() {
 
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
-    const [success, setSuccess] = useState();
 
     const navigate = useNavigate()
 
@@ -41,7 +40,7 @@ function Register() {
         name: '',
         email: '',
         password: '',
-        confirmpassword: ''
+        confirmPassword: ''
     });
 
     const handleChange = (e) => {
@@ -54,19 +53,19 @@ function Register() {
         e.preventDefault();
         try {
             setLoading(true)
-            const response = await registerUser(registerData);
+            await registerUser(registerData);
+            alert('Registration successful. Please check your email to activate your account.');
             setLoading(false);
-            setSuccess(true);
             setRegisterData({
                 name: '',
                 email: '',
                 password: '',
-                confirmpassword: ''
+                confirmPassword: ''
             });
             navigate('/login')
         } catch (error) {
             setLoading(false);
-            setError(true);
+            setError(err.response.data);
             console.log(error.message);
         }
 
@@ -74,12 +73,10 @@ function Register() {
 
     return (
         <>
-            {loading && (<Loader />)}
-            {error && (<Error />)}
-            
-            <Layout className="d-flex justify-content-center align-items-center min-vh-100 p-3">
-                <div className="row justify-content-center w-100">
-                {/* {success && (<Success message='Registeration success'/>)} */}
+            <div className="container d-flex justify-content-center align-items-center p-3" style={{ minHeight: '60vh' }}>
+                <div className="row d-flex justify-content-center align-item-center w-100" style={{ flexDirection: 'column' }}>
+                    {loading && (<Loader />)}
+                    {error && (<Error />)}
                     <div className="card p-5 mx-auto" style={{ maxWidth: '35rem' }}>
                         <h5 className='text-center'>Register</h5>
                         <form onSubmit={handleRegister}>
@@ -107,8 +104,8 @@ function Register() {
 
                             <div className="row mb-5">
                                 <div className="col-12">
-                                    <label className='form-label' htmlFor="confirmpassword">Confirm Password</label>
-                                    <input type="password" className="form-control" name='confirmpassword' value={registerData.confirmpassword} onChange={handleChange} />
+                                    <label className='form-label' htmlFor="confirmPassword">Confirm Password</label>
+                                    <input type="password" className="form-control" name='confirmPassword' value={registerData.confirmPassword} onChange={handleChange} />
                                 </div>
                             </div>
 
@@ -130,7 +127,7 @@ function Register() {
 
 
 
-            </Layout >
+            </div>
 
 
         </>

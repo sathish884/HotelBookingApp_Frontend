@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import * as Yup from 'yup';
-import { Layout, Flex, Input } from 'antd';
+import { Flex, Input } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { loginUser, otpVerify } from '../../Services/Api';
 import Loader from '../../Utilits/Loader';
+import Error from '../../Utilits/Error';
 
 function Login() {
     // // Initial values for the form fields
@@ -65,7 +66,6 @@ function Login() {
                         JSON.stringify(response.data.token)
                     );
                     setShow(false);
-                    //   window.location.href = '/hotel'
                     document.location.href = '/hotel'
                 }
             } catch (error) {
@@ -93,29 +93,26 @@ function Login() {
         try {
             setLoading(true)
             const response = await loginUser(loginData);
-
-            if (response.status === 200) {
-                setShow(true);
-                setResOtp(response.data.otp)
-            }
+            setShow(true);
+            setResOtp(response.data.otp)
             setLoading(false)
         } catch (error) {
             setLoading(false);
-            setError(true);
-            console.log(error.message);
+            setError(error.response.data);
+            console.log(error.response.data);
         }
     }
 
     return (
         <>
-            <Layout className="d-flex justify-content-center align-items-center min-vh-100 p-3">
+            {loading && (<Loader />)}
 
-                {loading && (<Loader />)}
-
-                <div className="row justify-content-center w-100">
+            <div className="container d-flex justify-content-center align-items-center p-5" style={{ minHeight: '60vh' }}>
+                <div className="row d-flex justify-content-center align-item-center w-100" style={{ flexDirection: 'column' }}>
+                    {error && (<Error error={error} />)}
                     <div className="card p-5 mx-auto" style={{ maxWidth: '35rem' }}>
-                        <h5>Sign in</h5>
-                        <p>For security, please sign in to access your information</p>
+                        <h5 className='text-center'>Sign in</h5>
+                        <p className='text-center'>For security, please sign in to access your information</p>
                         <form onSubmit={handleLogin}>
                             <div className="row mb-3">
                                 <div className="col-12">
@@ -137,7 +134,8 @@ function Login() {
                             <div className="row mb-3">
                                 <div className="col-12 d-flex justify-content-between">
                                     <Link to={'/register'}>Create account</Link>
-                                    <a href="#"><i className="bi bi-person-fill-lock"></i>&nbsp;Forget password</a>
+                                    <Link to={'/forgot-password'}>Forget password</Link>
+                                    {/* <a href="#"><i className="bi bi-person-fill-lock"></i>&nbsp;Forget password</a> */}
                                 </div>
                             </div>
                             <div className="row mb-5">
@@ -150,7 +148,7 @@ function Login() {
                             <div className="row">
                                 <div className="col-12">
                                     <button type="button" className="btn btn-outline-secondary w-100">
-                                        <img src="imgs/google.webp" alt="Google" width={30} height={30} className="me-2" />
+                                        <img src="src/assets/imgs/google.webp" alt="Google" width={30} height={30} className="me-2" />
                                         <b>Google</b>
                                     </button>
                                 </div>
@@ -179,7 +177,7 @@ function Login() {
                     </Modal.Footer>
                 </Modal>
 
-            </Layout>
+            </div>
 
         </>
     )
