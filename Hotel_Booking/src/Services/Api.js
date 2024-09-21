@@ -7,9 +7,27 @@ const apiClient = axios.create({
     }
 });
 
-export const getHotelList = async () => {
+export const createRooms = async (body) => {
     try {
-        const response = await apiClient.get('/getAllHotelList');
+        const response = await apiClient.post('/createroom', body);
+        return response;
+    } catch (error) {
+        throw error;
+    }
+}
+
+export const updatedRoom = async (id, body) => {
+    try {
+        const response = await apiClient.put(`/updateRoom?roomId=${id}`, body);
+        return response;
+    } catch (error) {
+        throw error;
+    }
+}
+
+export const deleteRooms = async (id) => {
+    try {
+        const response = await apiClient.delete(`/deleteRoom?roomId=${id}`);
         return response;
     } catch (error) {
         throw error;
@@ -25,6 +43,16 @@ export const getRoomList = async () => {
     }
 }
 
+export const getHotelList = async () => {
+    try {
+        const response = await apiClient.get('/getAllHotelList');
+        return response;
+    } catch (error) {
+        throw error;
+    }
+}
+
+
 export const getSingleRoom = async (id) => {
     try {
         const response = await apiClient.get(`/getSingleRoom?roomId=${id}`);
@@ -34,8 +62,33 @@ export const getSingleRoom = async (id) => {
     }
 }
 
+export const getRoomsByUser = async (body) => {
+    try {
+        const response = await apiClient.post('/getBookingRoomsByUser', body);
+        return response;
+    } catch (error) {
+        throw error;
+    }
+}
 
-// User Registeration
+export const getBookingRoomList = async () => {
+    try {
+        const response = await apiClient.get('/getallbooking');
+        return response;
+    } catch (error) {
+        throw error;
+    }
+}
+
+export const getAmenitiesList = async () => {
+    try {
+        const response = await apiClient.get('/getAllAmenities');
+        return response;
+    } catch (error) {
+        throw error;
+    }
+}
+
 export const bookingRooms = async (body) => {
     try {
         const response = await apiClient.post('/booking-room', body);
@@ -45,6 +98,14 @@ export const bookingRooms = async (body) => {
     }
 }
 
+export const cancelBookingRooms = async (body) => {
+    try {
+        const response = await apiClient.post('/cancelbooking', body);
+        return response;
+    } catch (error) {
+        throw error;
+    }
+}
 
 
 // ---------------------- User Authentication ------------------------
@@ -103,6 +164,16 @@ export const tokenVerify = async (body) => {
 export const resetPassword = async (body) => {
     try {
         const response = await apiClient.post('/reset-passsword', body);
+        return response.data;
+    } catch (error) {
+        throw error;
+    }
+};
+
+// Get All users
+export const getAllUsers = async () => {
+    try {
+        const response = await apiClient.get('/getallusers');
         return response.data;
     } catch (error) {
         throw error;

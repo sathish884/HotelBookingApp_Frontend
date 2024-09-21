@@ -1,23 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import './Booking.css';
 import Loader from '../../Utilits/Loader';
 import Error from '../../Utilits/Error';
 import moment from 'moment';
 import { getSingleRoom, bookingRooms } from '../../Services/Api';
+import StripeCheckout from 'react-stripe-checkout';
+import Swal from 'sweetalert2';
 
 
 function Booking() {
     const { roomid } = useParams();
     const location = useLocation();
-    const { fromDate, toDate } = location.state;
+    const { fromdate, todate } = location.state;
+    const navigate = useNavigate();
 
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const [room, setRoom] = useState(null);
 
-    const fromDateMoment = moment(fromDate, 'DD-MM-YYYY');
-    const toDateMoment = moment(toDate, 'DD-MM-YYYY');
+    const fromDateMoment = moment(fromdate, 'DD-MM-YYYY');
+    const toDateMoment = moment(todate, 'DD-MM-YYYY');
     const totaldays = moment.duration(toDateMoment.diff(fromDateMoment)).asDays() + 1;
 
     const totalamount = room ? room.rentperday * totaldays : 0;
@@ -25,11 +28,12 @@ function Booking() {
     useEffect(() => {
         const getRoom = async () => {
             try {
+                setLoading(true); 
                 const response = await getSingleRoom(roomid);
                 setRoom(response.data);
+                setLoading(false); // Ensure loading is stopped after success
             } catch (err) {
-                setError(true);
-            } finally {
+                setError(err);
                 setLoading(false);
             }
         };
@@ -37,24 +41,41 @@ function Booking() {
         getRoom();
     }, [roomid]);
 
-    const handleBooking = async () => {
+    async function onToken(token) {
+        const userObj = sessionStorage.getItem('userObj');
+
+        if (!userObj) {
+            console.log("User is not logged in.");
+            return;
+        }
+
+        const userId = JSON.parse(userObj)._id;
+
         const body = {
             room: {
                 name: room.name,
                 _id: room._id
             },
-            userid: JSON.parse(sessionStorage.getItem('userObj'))._id,
-            fromDate,
-            toDate,
+            userid: userId,
+            fromdate,
+            todate,
             totalamount,
-            totaldays
+            totaldays,
+            token
         };
+
         try {
+            setLoading(true)
             await bookingRooms(body);
+            setLoading(false);
+            Swal.fire('Congratulation', 'Your room booked successfully', 'success').then(result => {
+                navigate('/profile')
+            })
         } catch (err) {
-            console.log(err.message);
+            setLoading(false);
+            Swal.fire('Oops', 'Somthing went wrong', 'error')
         }
-    };
+    }
 
     return (
         <div className='m-5'>
@@ -62,12 +83,16 @@ function Booking() {
                 <Loader />
             ) : error ? (
                 <Error />
-            ) : (
+            ) : room ? (
                 <div className='room pt-3 pb-5'>
                     <div className="row justify-content-center mt-5">
                         <div className="col-md-5">
                             <h2 className='pb-2'>{room.name}</h2>
-                            <img className='room-img w-100' src={room.imagesurls[0]} alt="Room" />
+                            {room.imagesurls && room.imagesurls.length > 0 ? (
+                                <img className='room-img w-100' src={room.imagesurls[0]} alt="Room" />
+                            ) : (
+                                <p>No image available</p>
+                            )}
                         </div>
 
                         <div className="col-md-5">
@@ -76,8 +101,8 @@ function Booking() {
                                 <hr />
                                 <b>
                                     <p>Name: {room.name}</p>
-                                    <p>From Date: {fromDate}</p>
-                                    <p>To Date: {toDate}</p>
+                                    <p>From Date: {fromdate}</p>
+                                    <p>To Date: {todate}</p>
                                     <p>Max Count: {room.maxCount}</p>
                                 </b>
                             </div>
@@ -93,14 +118,27 @@ function Booking() {
                             </div>
 
                             <div style={{ float: 'right' }}>
-                                <button className='btn btn-primary' onClick={handleBooking}>Pay Now</button>
+
+                                <StripeCheckout
+                                    amount={totalamount * 100}
+                                    token={onToken}
+                                    currency='INR'
+                                    stripeKey="pk_test_51PxieW2KGc3uEogJDyCiZ62PeZ5Y7aKYqjJfIpD9pWC1aascvQo2zZjdsVBK0uw0CljB40QKggvLmKwHAf1mbsiU00A7ZjVDI1"
+                                >
+                                    <button className='btn btn-primary'>Pay Now</button>
+
+                                </StripeCheckout>
+
                             </div>
                         </div>
                     </div>
                 </div>
+            ) : (
+                <Error message="Room not found" />
             )}
         </div>
     );
+
 }
 
 export default Booking

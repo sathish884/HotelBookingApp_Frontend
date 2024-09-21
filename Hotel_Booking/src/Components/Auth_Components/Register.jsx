@@ -77,7 +77,7 @@ function Register() {
                 <div className="row d-flex justify-content-center align-item-center w-100" style={{ flexDirection: 'column' }}>
                     {loading && (<Loader />)}
                     {error && (<Error />)}
-                    <div className="card p-5 mx-auto" style={{ maxWidth: '35rem' }}>
+                    <div className="card p-5 mx-auto bs" style={{ maxWidth: '35rem' }}>
                         <h5 className='text-center'>Register</h5>
                         <form onSubmit={handleRegister}>
 

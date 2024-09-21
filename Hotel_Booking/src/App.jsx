@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes,Navigate } from 'react-router-dom';
 //import Home from './Components/Layout_Components/Home';
 import Navbar from './Components/Layout_Components/Navbar';
 import { Layout } from 'antd';
@@ -12,6 +12,7 @@ import AccountActivated from './Utilits/AccountActivated';
 import ForgetPassword from './Components/Auth_Components/ForgetPassword';
 import ResetPassword from './Components/Auth_Components/ResetPassword';
 import TokenVerify from './Components/Auth_Components/TokenVerify';
+import Profile from './Components/Prifile_Components/Profile';
 
 function App() {
   return (
@@ -19,8 +20,11 @@ function App() {
       <Layout>
         <Navbar />
         <Routes>
+          <Route path="/" element={<Navigate to="/hotel" replace />} />
           <Route path='/hotel' exact element={<Hotel />} />
           <Route path='/booking-room/:roomid' exact element={<Booking />} />
+          <Route path="/profile" element={<Profile />} />
+          {/* <Route path='/profile' exact element={<MyBookings />} /> */}
 
           {/* User authentication */}
           <Route path='/register' element={<Register />} />

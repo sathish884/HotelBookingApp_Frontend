@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import './Room.css'
 import { Button, Modal, Carousel } from 'react-bootstrap';
-import { useLocale } from 'antd/es/locale';
 
 function Room({ rooms, fromdate, todate, difference }) {
 
@@ -14,7 +13,7 @@ function Room({ rooms, fromdate, todate, difference }) {
     const handleShow = () => setShow(true);
 
     const handleBookingRoom = (id, fromdate, todate, difference) => {
-        navigate(`/booking-room/${id}`, { state: { fromDate: fromdate, toDate: todate, days:difference } });
+        navigate(`/booking-room/${id}`, { state: { fromdate: fromdate, todate: todate, days: difference } });
     };
 
 
@@ -32,11 +31,14 @@ function Room({ rooms, fromdate, todate, difference }) {
                         <p>Number</p>
                     </b>
                     <div style={{ float: 'right' }}>
-                        <button
-                            className='btn bg-dark text-white'
-                            onClick={() => handleBookingRoom(rooms._id, fromdate, todate, difference)}>
-                            Book Now
-                        </button>
+                        {(fromdate && todate) && (
+                            <button
+                                className='btn bg-dark text-white'
+                                onClick={() => handleBookingRoom(rooms._id, fromdate, todate, difference)}>
+                                Book Now
+                            </button>
+                        )}
+
                         <Link to={'/hotel'}> <button className='btn bg-dark text-white' onClick={handleShow}>View Details</button></Link>
                     </div>
                 </div>

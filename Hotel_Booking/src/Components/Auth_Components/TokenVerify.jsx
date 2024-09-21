@@ -25,7 +25,7 @@ function TokenVerify() {
             <div className="container d-flex justify-content-center align-items-center" style={{ minHeight: '60vh' }}>
                 <div className="row d-flex justify-content-center align-item-center w-100" style={{ flexDirection: 'column' }}>
                     {error ? (<Error error={error} />) : ""}
-                    <div className="card p-5 mx-auto" style={{ maxWidth: '35rem' }}>
+                    <div className="card p-5 mx-auto bs" style={{ maxWidth: '35rem' }}>
                         <h5 className='text-center'>Verify Token</h5>
                         <form onSubmit={handleSubmit}>
                             <div className="row mb-3">

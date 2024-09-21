@@ -24,7 +24,7 @@ function Footers() {
                         <div style={style} className='gutterRowOne'>
                             <p>Download OYO app for exciting offers.</p>
                             <div style={{ display: 'flex', justifyContent: 'center', gap: '20px' }}>
-                                <button type="button" className="btn btn-secondary"><i class="bi bi-apple" style={{ fontSize: '20px', color: 'black' }}></i>&nbsp;<span style={{ fontSize: '12px' }}>Download on the <br /><span style={{ fontSize: '18px' }}> App Store</span></span></button>
+                                <button type="button" className="btn btn-secondary"><i className="bi bi-apple" style={{ fontSize: '20px', color: 'black' }}></i>&nbsp;<span style={{ fontSize: '12px' }}>Download on the <br /><span style={{ fontSize: '18px' }}> App Store</span></span></button>
                                 <button type="button" className="btn btn-secondary"><img src="src/assets/imgs/google-play.webp" alt="" width={20} height={20} />&nbsp;<span style={{ fontSize: '12px' }}>Get it on <br /><span style={{ fontSize: '18px' }}>Google Play</span></span></button>
                             </div>
                         </div>
@@ -66,7 +66,7 @@ function Footers() {
                 <hr />
                 <div style={{ display: 'flex', justifyContent: 'space-around' }}>
                     <h6>Feeling lucky? Try out a random OYO. Find OYO</h6>
-                    <div class="vr"></div>
+                    <div className="vr"></div>
                     <h6>Have Queries ? Call for any assistance on 0124-6201600</h6>
                 </div>
                 <hr />

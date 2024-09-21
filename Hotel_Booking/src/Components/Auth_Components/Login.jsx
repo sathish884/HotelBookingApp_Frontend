@@ -110,7 +110,7 @@ function Login() {
             <div className="container d-flex justify-content-center align-items-center p-5" style={{ minHeight: '60vh' }}>
                 <div className="row d-flex justify-content-center align-item-center w-100" style={{ flexDirection: 'column' }}>
                     {error && (<Error error={error} />)}
-                    <div className="card p-5 mx-auto" style={{ maxWidth: '35rem' }}>
+                    <div className="card p-5 mx-auto bs" style={{ maxWidth: '35rem' }}>
                         <h5 className='text-center'>Sign in</h5>
                         <p className='text-center'>For security, please sign in to access your information</p>
                         <form onSubmit={handleLogin}>

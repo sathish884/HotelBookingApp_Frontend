@@ -29,7 +29,7 @@ function ForgetPassword() {
 
             <div className="container d-flex justify-content-center align-items-center" style={{ minHeight: '60vh' }}>
                 <div className="row justify-content-center w-100">
-                    <div className="card p-5 mx-auto" style={{ maxWidth: '35rem' }}>
+                    <div className="card p-5 mx-auto bs" style={{ maxWidth: '35rem' }}>
                         <h5 className='text-center'>Forgot Password</h5>
                         <form onSubmit={handleSubmit}>
                             <div className="row mb-3">

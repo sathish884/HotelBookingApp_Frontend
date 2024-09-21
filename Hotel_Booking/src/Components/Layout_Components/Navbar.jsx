@@ -5,7 +5,7 @@ function Navbar() {
 
     const user = JSON.parse(sessionStorage.getItem('userObj'));
 
-    const logout = ()=>{
+    const logout = () => {
         sessionStorage.removeItem('userObj');
         sessionStorage.removeItem('userToken');
         sessionStorage.setItem('isUserLoggedIn', 'false')
@@ -24,24 +24,27 @@ function Navbar() {
                         <ul className="navbar-nav ms-auto">
                             {user ? (
                                 <>
-                                    <div className="dropdown" style={{position:'relative'}}>
-                                        <button className="btn btn-secondary me-5" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            {user.name}
-                                        </button>
-                                        <ul className="dropdown-menu" style={{position:'absolute', left:'-50px'}}>
-                                            <li><a className="dropdown-item" href="#">Bookings</a></li>
-                                            <li><a className="dropdown-item" onClick={logout}>Logout</a></li>
-                                        </ul>
-                                    </div>
-
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to={'/hotel'} style={{fontSize:'18px'}}>Home</Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to={'/profile'} style={{fontSize:'18px'}}>Bookings</Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to={'/profile'} style={{fontSize:'18px'}}>Profile</Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link" onClick={logout} style={{fontSize:'18px'}}>Logout</Link>
+                                    </li>
+                                   
                                 </>
                             ) : (
                                 <>
                                     <li className="nav-item">
-                                        <Link className="nav-link" to={'/register'}>Register</Link>
+                                        <Link className="nav-link" to={'/register'} style={{fontSize:'18px'}}>Register</Link>
                                     </li>
                                     <li className="nav-item">
-                                        <Link className="nav-link" to={'/login'}>Login</Link>
+                                        <Link className="nav-link" to={'/login'} style={{fontSize:'18px'}}>Login</Link>
                                     </li>
                                 </>
                             )}

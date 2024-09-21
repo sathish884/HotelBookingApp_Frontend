@@ -1,0 +1,23 @@
+.custom-table .ant-table-thead .ant-table-cell {
+    background-color: black !important;
+    /* Set header background to black */
+    color: white !important;
+    /* Set header text color to white */
+    font-size: 17px !important;
+}
+
+.form-label {
+    font-size: 16.5px !important;
+}
+
+.ant-table-tbody .ant-table-row .ant-table-cell {
+    font-size: 16px !important;
+}
+
+.ant-select-selector{
+    padding: 7px !important;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+}
+.ant-dropdown-trigger, .ant-table-column-sorter{
+    color: white !important;
+}
