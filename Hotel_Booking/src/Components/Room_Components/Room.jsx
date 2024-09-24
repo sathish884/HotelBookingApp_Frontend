@@ -19,7 +19,7 @@ function Room({ rooms, fromdate, todate, difference }) {
 
     return (
         <>
-            <div className="row bs">
+            {/* <div className="row bs">
                 <div className="col-md-4">
                     <img src={rooms.imagesurls[0]} className='smallimg' />
                 </div>
@@ -42,7 +42,160 @@ function Room({ rooms, fromdate, todate, difference }) {
                         <Link to={'/hotel'}> <button className='btn bg-dark text-white' onClick={handleShow}>View Details</button></Link>
                     </div>
                 </div>
-            </div>
+            </div> */}
+
+
+            {/* <!-- Home Room Section Begin --> */}
+            <section className="hp-room-section spad">
+                <div className="container-fluid">
+                    <div className="hp-room-items">
+                        <div className="row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+
+                            <div className="col-lg-4 col-md-6 colsss" style={{ position: 'relative' }}>
+                                <img className='set-bg' src={rooms.imagesurls[0]} alt="" style={{ position: 'absolute' }} />
+                                <div className="hp-room-item">
+                                    <div className="hr-text">
+                                        <h3>{rooms.name}</h3>
+                                        <h2>{rooms.rentperday}$<span>/Perday</span></h2>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td className="r-o">Size:</td>
+                                                    <td>30 ft</td>
+                                                </tr>
+                                                <tr>
+                                                    <td className="r-o">Capacity:</td>
+                                                    <td>Max persion {rooms.maxCount}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td className="r-o">Bed:</td>
+                                                    <td>King Beds</td>
+                                                </tr>
+                                                <tr>
+                                                    <td className="r-o">Services:</td>
+                                                    {/* <td>{rooms.amenities[0].name}</td> */}
+                                                    {/* {rooms.amenities.map((room, index) => (
+                                                        <td key={index}>{room.name}</td>
+                                                    ))} */}
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                        <div className='d-flex justify-content-between align-items-center'>
+                                            <Link to={'/hotel'} className='text-white' onClick={handleShow} style={{fontSize:'16px'}}>more details</Link>
+
+                                            <div style={{ float: 'right' }}>
+                                                {(fromdate && todate) && (
+                                                    <button
+                                                        className='btn' style={{ background: '#dfa974', fontWeight: '500' }}
+                                                        onClick={() => handleBookingRoom(rooms._id, fromdate, todate, difference)}>
+                                                        Book Now
+                                                    </button>
+                                                )}
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* <div className="col-lg-3 col-md-6">
+                                    <div className="hp-room-item set-bg">
+                                        <div className="hr-text">
+                                            <h3>Family Room</h3>
+                                            <h2>299$<span>/Pernight</span></h2>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td className="r-o">Size:</td>
+                                                        <td>30 ft</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td className="r-o">Capacity:</td>
+                                                        <td>Max persion 5</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td className="r-o">Bed:</td>
+                                                        <td>King Beds</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td className="r-o">Services:</td>
+                                                        <td>Wifi, Television, Bathroom,...</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <a href="#" className="primary-btn">More Details</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="col-lg-3 col-md-6">
+                                    <div className="hp-room-item set-bg">
+                                        <div className="hr-text">
+                                            <h3>Family Room</h3>
+                                            <h2>299$<span>/Pernight</span></h2>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td className="r-o">Size:</td>
+                                                        <td>30 ft</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td className="r-o">Capacity:</td>
+                                                        <td>Max persion 5</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td className="r-o">Bed:</td>
+                                                        <td>King Beds</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td className="r-o">Services:</td>
+                                                        <td>Wifi, Television, Bathroom,...</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <a href="#" className="primary-btn">More Details</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="col-lg-3 col-md-6">
+                                    <div className="hp-room-item set-bg">
+                                        <div className="hr-text">
+                                            <h3>Family Room</h3>
+                                            <h2>299$<span>/Pernight</span></h2>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td className="r-o">Size:</td>
+                                                        <td>30 ft</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td className="r-o">Capacity:</td>
+                                                        <td>Max persion 5</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td className="r-o">Bed:</td>
+                                                        <td>King Beds</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td className="r-o">Services:</td>
+                                                        <td>Wifi, Television, Bathroom,...</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <a href="#" className="primary-btn">More Details</a>
+                                        </div>
+                                    </div>
+                                </div> */}
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            {/* <!-- Home Room Section End --> */}
 
             <Modal show={show} onHide={handleClose} size='lg'>
                 <Modal.Header closeButton>
