@@ -50,6 +50,7 @@ function EditRoom({ editingRecord, editRoom }) {
     // Ensure initial values are correctly set based on the editingRecord
     const initialValues = {
         name: editingRecord?.name || '',
+        bed: editingRecord?.bed || '',
         type: editingRecord?.type || '',
         amenities: editingRecord?.amenities?.map(a => a._id) || [],  // Extract _id from amenities
         description: editingRecord?.description || '',
@@ -112,6 +113,14 @@ function EditRoom({ editingRecord, editRoom }) {
 
                                         <div className="row mb-3">
                                             <div className="col-12">
+                                                <label htmlFor="type">Bed</label>
+                                                <Field className="form-control" id="type" name="bed" />
+                                                <ErrorMessage name="bed" component="div" className="text-danger" />
+                                            </div>
+                                        </div>
+
+                                        <div className="row mb-3">
+                                            <div className="col-12">
                                                 <label htmlFor="amenities">Amenities</label>
                                                 <Select
                                                     mode="multiple"
@@ -166,7 +175,7 @@ function EditRoom({ editingRecord, editRoom }) {
                                             </div>
                                         </div>
 
-                                        {/* Image Preview */}
+                                         {/* Inside the Formik form, display the images preview */}
                                         <div className="row mb-3">
                                             <div className="col-12">
                                                 {values.imagesurls.length > 0 && values.imagesurls.map((url, index) => (
@@ -174,7 +183,7 @@ function EditRoom({ editingRecord, editRoom }) {
                                                 ))}
                                             </div>
                                         </div>
-
+                                        
                                         <div className="modal-footer">
                                             <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Close</button>
                                             <button type="submit" className="btn btn-primary">Update</button>

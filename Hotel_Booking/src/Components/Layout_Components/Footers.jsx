@@ -4,14 +4,14 @@ const { Footer } = Layout;
 import './Footers.css';
 
 const style = {
-   // background: '#0092ff',
+    // background: '#0092ff',
     padding: '8px 0',
 };
 
 function Footers() {
     return (
         <>
-            <Footer className='footerStyle'>
+            {/* <Footer className='footerStyle'>
                 <Row
                     gutter={{
                         xs: 8,
@@ -76,7 +76,76 @@ function Footers() {
                     Agoda is part of Booking Holdings Inc., the world leader in online travel & related services.
                 </div>
 
-            </Footer>
+            </Footer> */}
+
+            <footer className='footer-section'>
+                <div className="container">
+                    <div className="footer-text">
+                        <div className="row">
+                            <div className="col-lg-4">
+                                <div className="ft-about">
+                                    <div className="logo">
+                                        <a href="#">
+                                            <img src="img/footer-logo.png" alt="" />
+                                        </a>
+                                    </div>
+                                    <p>We inspire and reach millions of travelers<br /> across 90 local websites</p>
+                                    <div class="fa-social">
+                                        <a href="#"><i class="bi bi-facebook"></i></a>
+                                        <a href="#"><i className="bi bi-twitter"></i></a>
+                                        <a href="#"><i className="bi bi-discord"></i></a>
+                                        <a href="#"><i className="bi bi-instagram"></i></a>
+                                        <a href="#"><i className="bi bi-youtube"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-lg-3 offset-lg-1">
+                                <div className="ft-contact">
+                                    <h6>Contact Us</h6>
+                                    <ul style={{ padding: '0px' }}>
+                                        <li>(12) 345 67890</li>
+                                        <li>info.colorlib@gmail.com</li>
+                                        <li>856 Cordia Extension Apt. 356, Lake, United State</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div className="col-lg-3 offset-lg-1">
+                                <div className="ft-newslatter">
+                                    <h6>New latest</h6>
+                                    <p>Get the latest updates and offers.</p>
+                                    <form action="#" className="fn-form">
+                                        <input type="text" placeholder="Email" />
+                                        <button type="submit"><i className="bi bi-send-fill"></i></button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="copyright-option">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-7">
+                                <ul style={{ padding: '0px' }}>
+                                    <li><a href="#" style={{textDecoration:'none'}}>Contact</a></li>
+                                    <li><a href="#" style={{textDecoration:'none'}}>Terms of use</a></li>
+                                    <li><a href="#" style={{textDecoration:'none'}}>Privacy</a></li>
+                                    <li><a href="#" style={{textDecoration:'none'}}>Environmental Policy</a></li>
+                                </ul>
+                            </div>
+                            <div className="col-lg-5">
+                                {/* <div className="col-lg-5"> */}
+                                <div className="co-text">
+                                    <p>
+                                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i className="bi bi-heart-fill" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                                    </p>
+                                </div>
+                                {/* </div> */}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </>
     )
 }

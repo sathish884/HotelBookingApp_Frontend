@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes,Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 //import Home from './Components/Layout_Components/Home';
 import Navbar from './Components/Layout_Components/Navbar';
 import { Layout } from 'antd';
@@ -13,6 +13,7 @@ import ForgetPassword from './Components/Auth_Components/ForgetPassword';
 import ResetPassword from './Components/Auth_Components/ResetPassword';
 import TokenVerify from './Components/Auth_Components/TokenVerify';
 import Profile from './Components/Prifile_Components/Profile';
+import Contact from './Components/About_Components/Contact';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path='/hotel' exact element={<Hotel />} />
           <Route path='/booking-room/:roomid' exact element={<Booking />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/contact" element={<Contact />} />
           {/* <Route path='/profile' exact element={<MyBookings />} /> */}
 
           {/* User authentication */}

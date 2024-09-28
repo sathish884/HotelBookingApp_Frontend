@@ -4,11 +4,14 @@ import { Select } from 'antd';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { getAmenitiesList, createRooms } from '../../Services/Api';
+import { UploadOutlined } from '@ant-design/icons';
+import { Button, Upload } from 'antd';
 
 
 // Sample initial form data
 const initialValues = {
   name: '',
+  bed: '',
   type: '',
   amenities: [],
   description: '',
@@ -20,6 +23,7 @@ const initialValues = {
 // Validation schema using Yup
 const validationSchema = Yup.object({
   name: Yup.string().required('Room Name is required'),
+  bed: Yup.string().required('Bed Name is required'),
   type: Yup.string().required('Room Type is required'),
   rentperday: Yup.number().required('Rent Per Day is required'),
   maxCount: Yup.number().required('Max Count is required'),
@@ -57,12 +61,43 @@ function AddRoom() {
     key: `${amenity._id}-${amenityIndex}`,
   }));
 
-  // Handle file change to update images array in formData
-  const handleFileChange = (e, setFieldValue) => {
-    const files = Array.from(e.target.files);
-    const imageUrls = files.map((file) => URL.createObjectURL(file));
-    setFieldValue('imagesurls', imageUrls);
+  const [selectedImages, setSelectedImages] = useState([]);
+
+  // // Handle image selection
+  // const handleImageChange = (e) => {
+  //   const files = Array.from(e.target.files);
+  //   setSelectedImages(files);
+  // };
+
+  // Handle removing an image from the preview
+  const handleRemoveImage = (indexToRemove) => {
+    setSelectedImages((prevImages) =>
+      prevImages.filter((_, index) => index !== indexToRemove)
+    );
   };
+
+  // Handle image selection
+  const handleImageChange = (e, setFieldValue) => {
+    const files = Array.from(e.target.files);
+    setSelectedImages(files);
+
+    // Set image URLs into Formik's imagesurls field
+    const imageUrls = files.map(file => URL.createObjectURL(file));
+    setFieldValue('imagesurls', imageUrls); // Store image URLs in the form
+  };
+
+
+
+  const onSubmit = async (values, { resetForm }) => {
+    console.log(values); // Log form values before submitting
+    try {
+      await createRooms(values); // Assuming createRooms is your API call
+      resetForm(); // Reset form data after successful submission
+      if (fileInputRef.current) fileInputRef.current.value = ''; // Reset file input
+    } catch (error) {
+      console.error('Error creating room:', error);
+    }
+  }
 
   const styles = {
     boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
@@ -75,16 +110,7 @@ function AddRoom() {
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
-          onSubmit={async (values, { resetForm }) => {
-            console.log(values); // Log form values before submitting
-            try {
-              await createRooms(values); // Assuming createRooms is your API call
-              resetForm(); // Reset form data after successful submission
-              if (fileInputRef.current) fileInputRef.current.value = ''; // Reset file input
-            } catch (error) {
-              console.error('Error creating room:', error);
-            }
-          }}
+          onSubmit={onSubmit}
         >
           {({ setFieldValue, values }) => (
             <Form>
@@ -103,12 +129,27 @@ function AddRoom() {
               </div>
 
               <div className="row mb-4">
-                <div className="col-md-6">
+                <div className="col-md-4">
+                  <label htmlFor="bed" className="form-label">Bed</label>
+                  <Field name="bed" type="text" className="form-control" style={styles} placeholder="Bed" />
+                  <ErrorMessage name="bed" component="div" className="text-danger" style={{ marginTop: '10px', fontSize: '15px', fontWeight: 'bold' }} />
+                </div>
+
+                <div className="col-md-4">
                   <label htmlFor="rentperday" className="form-label">Rent Per Day</label>
                   <Field name="rentperday" type="number" className="form-control" style={styles} placeholder="Rent Per Day" />
                   <ErrorMessage name="rentperday" component="div" className="text-danger" style={{ marginTop: '10px', fontSize: '15px', fontWeight: 'bold' }} />
                 </div>
 
+                <div className="col-md-4">
+                  <label htmlFor="maxCount" className="form-label">Max Count</label>
+                  <Field name="maxCount" type="number" className="form-control" style={styles} placeholder="Max Count" />
+                  <ErrorMessage name="maxCount" component="div" className="text-danger" style={{ marginTop: '10px', fontSize: '15px', fontWeight: 'bold' }} />
+                </div>
+
+              </div>
+
+              <div className="row mb-4">
                 <div className="col-md-6">
                   <label htmlFor="amenities" className="form-label">Amenities</label>
                   <Select
@@ -122,14 +163,6 @@ function AddRoom() {
                   />
                   <ErrorMessage name="amenities" component="div" className="text-danger" style={{ marginTop: '10px', fontSize: '15px', fontWeight: 'bold' }} />
                 </div>
-              </div>
-
-              <div className="row mb-4">
-                <div className="col-md-6">
-                  <label htmlFor="maxCount" className="form-label">Max Count</label>
-                  <Field name="maxCount" type="number" className="form-control" style={styles} placeholder="Max Count" />
-                  <ErrorMessage name="maxCount" component="div" className="text-danger" style={{ marginTop: '10px', fontSize: '15px', fontWeight: 'bold' }} />
-                </div>
 
                 <div className="col-md-6">
                   <label htmlFor="description" className="form-label">Description</label>
@@ -138,44 +171,58 @@ function AddRoom() {
                 </div>
               </div>
 
+
               <div className="row mb-4">
                 <div className="col-md-6">
                   <label htmlFor="imagesurls" className="form-label">Images</label>
                   <input
                     type="file"
-                    ref={fileInputRef}
-                    className="form-control"
-                    style={styles}
-                    accept="image/*"
                     multiple
-                    onChange={(e) => handleFileChange(e, setFieldValue)}
+                    accept="image/*"
+                    onChange={(e) => handleImageChange(e, setFieldValue)}
                   />
+                  <div style={{ display: 'flex', flexWrap: 'wrap', marginTop: '10px' }}>
+                    {selectedImages.map((image, index) => (
+                      <div key={index} style={{ margin: '10px', position: 'relative' }}>
+                        <img
+                          src={URL.createObjectURL(image)}
+                          alt={`preview-${index}`}
+                          style={{ width: '60px', height: '50px', objectFit: 'cover', borderRadius: '5px' }}
+                        />
+                        <button
+                          style={{
+                            position: 'absolute',
+                            top: '5px',
+                            right: '5px',
+                            backgroundColor: 'red',
+                            color: 'white',
+                            border: 'none',
+                            cursor: 'pointer',
+                          }}
+                          onClick={() => handleRemoveImage(index)}
+                        >
+                          X
+                        </button>
+                      </div>
+                    ))}
+                  </div>
                   <ErrorMessage name="imagesurls" component="div" className="text-danger" style={{ marginTop: '10px', fontSize: '15px', fontWeight: 'bold' }} />
                 </div>
               </div>
 
-              {/* Preview uploaded images */}
-              <div className="row mb-4">
-                <div className="col-md-12">
-                  {values.imagesurls.map((url, index) => (
-                    <img key={index} src={url} alt={`Preview ${index}`} style={{ width: '100px', height: '70px', margin: '10px' }} />
-                  ))}
-                </div>
-              </div>
-
-              <div className="row" style={{ float: 'right' }}>
-                <div className="col-12">
+              <div className="row justify-content-end">
+                <div className="col-auto">
                   <button type="submit" style={styles} className="btn btn-dark">Add Room</button>
                 </div>
               </div>
+
             </Form>
           )}
         </Formik>
       </div>
-    </div>
+    </div >
   );
 }
 
 export default AddRoom
-
 

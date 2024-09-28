@@ -8,21 +8,12 @@ body {
     margin: 0px;
 }
 
-.navbar {
-    background-color: #001529 !important;
-}
-
-.nav-link {
-    color: white !important;
-    font-size: 16px;
-    font-weight: 400;
-}
 
 .sweet-loading {
     z-index: 1000;
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 35%;
+    left: 48%;
 }
 
 .filter-box {
@@ -94,6 +85,59 @@ body {
 .text-white li,
 .text-white a {
     color: #fff;
+}
+
+/*---------------------
+  Header
+-----------------------*/
+
+.navbar {
+    background-color: #001529 !important;
+}
+
+.nav-link {
+    color: white !important;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* Sticky Navbar */
+.sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--bs-body-bg);
+    /* Ensure the navbar has a background color */
+}
+
+/* Hover Animation and Underline */
+.nav-item-link {
+    position: relative;
+    font-size: 18px;
+    color: white;
+    /* or any color you prefer */
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-item-link:hover {
+    color: #ffcc00;
+    /* Change to desired hover color */
+}
+
+.nav-item-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #ffcc00;
+    /* Underline color */
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-item-link:hover::after {
+    width: 100%;
 }
 
 /*---------------------
@@ -201,14 +245,14 @@ body {
 .hp-room-items {
     margin-left: -15px;
     margin-right: -15px;
-    overflow: hidden;   
- 
+    overflow: hidden;
+
 }
 
 .hp-room-items .set-bg {
     min-width: 100%;
     width: 100%;
-    height: 100%;   
+    height: 100%;
 }
 
 
@@ -224,8 +268,8 @@ body {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(0.8px);
     -webkit-backdrop-filter: blur(0.8px);
- 
-  
+
+
 }
 
 .hp-room-items .hp-room-item:hover .hr-text {
@@ -290,66 +334,77 @@ body {
 -----------------------*/
 
 .testimonial-section {
-	background: #f9f9f9;
+    background: #f5f5f5;
 }
+
 .testimonial-section .section-title {
-	margin-bottom: 30px;
+    margin-bottom: 30px;
 }
+
 .testimonial-slider.owl-carousel .owl-item img {
-	width: auto;
-	margin: 0 auto;
+    width: auto;
+    margin: 0 auto;
 }
+
 .testimonial-slider.owl-carousel .owl-nav button {
-	height: 44px;
-	width: 44px;
-	border: 1px solid #ebebeb;
-	font-size: 24px;
-	color: #707079;
-	background: #ffffff;
-	line-height: 48px;
-	text-align: center;
-	border-radius: 50%;
-	position: absolute;
-	left: -190px;
-	top: 50%;
-	-webkit-transform: translateY(-6px);
-	-ms-transform: translateY(-6px);
-	transform: translateY(-6px);
-	-webkit-transition: all 0.3s;
-	-o-transition: all 0.3s;
-	transition: all 0.3s;
+    height: 44px;
+    width: 44px;
+    border: 1px solid #ebebeb;
+    font-size: 24px;
+    color: #707079;
+    background: #ffffff;
+    line-height: 48px;
+    text-align: center;
+    border-radius: 50%;
+    position: absolute;
+    left: -190px;
+    top: 50%;
+    -webkit-transform: translateY(-6px);
+    -ms-transform: translateY(-6px);
+    transform: translateY(-6px);
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
 }
+
 .testimonial-slider.owl-carousel .owl-nav button:hover {
-	border-color: #19191a;
-	color: #19191a;
+    border-color: #19191a;
+    color: #19191a;
 }
+
 .testimonial-slider.owl-carousel .owl-nav button.owl-next {
-	left: auto;
-	right: -190px;
+    left: auto;
+    right: -190px;
 }
+
 .testimonial-slider .ts-item {
-	text-align: center;
+    text-align: center;
 }
+
 .testimonial-slider .ts-item p {
-	font-size: 20px;
-	color: #707079;
-	line-height: 30px;
-	margin-bottom: 50px;
+    font-size: 20px;
+    color: #707079;
+    line-height: 30px;
+    margin-bottom: 50px;
 }
+
 .testimonial-slider .ts-item .ti-author {
-	margin-bottom: 60px;
+    margin-bottom: 60px;
 }
+
 .testimonial-slider .ts-item .ti-author .rating {
-	display: inline-block;
+    display: inline-block;
 }
+
 .testimonial-slider .ts-item .ti-author .rating i {
-	color: #f5b917;
-	font-size: 16px;
+    color: #f5b917;
+    font-size: 16px;
 }
+
 .testimonial-slider .ts-item .ti-author h5 {
-	font-size: 20px;
-	color: #19191a;
-	display: inline-block;
+    font-size: 20px;
+    color: #19191a;
+    display: inline-block;
 }
 
 .custom-prev-arrow {
@@ -359,15 +414,432 @@ body {
     transform: translateY(-50%);
     z-index: 1;
     cursor: pointer;
-  }
-  
-  .custom-next-arrow {
+}
+
+.custom-next-arrow {
     position: absolute;
     top: 70% !important;
     right: 10px !important;
     transform: translateY(-50%);
     z-index: 1;
     cursor: pointer;
-  }
-  
-  
+}
+
+
+/*---------------------
+  Blog and Event
+-----------------------*/
+
+.blog-section {
+    padding-bottom: 70px;
+}
+
+.blog-section .section-title {
+    margin-bottom: 36px;
+}
+
+.blog-item {
+    position: relative;
+    /* Make the blog-item a positioned element */
+    overflow: hidden;
+    /* Hide any overflow */
+}
+
+.bi-text {
+    position: absolute;
+    /* Position text absolutely */
+    bottom: 0;
+    /* Align to the bottom */
+    left: 0;
+    /* Align to the left */
+    right: 0;
+    /* Stretch to the right */
+    padding: 15px;
+    /* Add padding for better spacing */
+    background: rgba(0, 0, 0, 0.5);
+    /* Optional: Background for better visibility */
+    color: white;
+    /* Text color */
+}
+
+.blog-item .bi-text a {
+    text-decoration: none;
+    color: white;
+}
+
+
+/*---------------------
+  Footer Section
+-----------------------*/
+
+.footer-section {
+    background-color: #001529 !important;
+
+    /* background: #222736; */
+}
+
+.footer-section .footer-text {
+    padding: 80px 0 30px;
+}
+
+.footer-section .footer-text .ft-about {
+    margin-bottom: 30px;
+}
+
+.footer-section .footer-text .ft-about .logo {
+    margin-bottom: 20px;
+}
+
+.footer-section .footer-text .ft-about .logo a {
+    display: inline-block;
+}
+
+.footer-section .footer-text .ft-about p {
+    color: #aaaab3;
+    margin-bottom: 20px;
+}
+
+.footer-section .footer-text .ft-about .fa-social a {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    font-size: 16px;
+    line-height: 40px;
+    text-align: center;
+    color: #ffffff;
+    border: 1px solid #5A4D48;
+    border-radius: 50%;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    margin-right: 7px;
+}
+
+.footer-section .footer-text .ft-about .fa-social a:hover {
+    background: #dfa974;
+    border-color: #dfa974;
+}
+
+.footer-section .footer-text .ft-contact {
+    margin-bottom: 30px;
+}
+
+.footer-section .footer-text .ft-contact h6 {
+    font-size: 14px;
+    color: #dfa974;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 3px;
+    font-family: "Cabin", sans-serif;
+    margin-bottom: 20px;
+}
+
+.footer-section .footer-text .ft-contact ul li {
+    font-size: 16px;
+    color: #aaaab3;
+    line-height: 32px;
+    list-style: none;
+}
+
+.footer-section .footer-text .ft-newslatter h6 {
+    font-size: 14px;
+    color: #dfa974;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 3px;
+    font-family: "Cabin", sans-serif;
+    margin-bottom: 20px;
+}
+
+.footer-section .footer-text .ft-newslatter p {
+    color: #aaaab3;
+    margin-bottom: 20px;
+}
+
+.footer-section .footer-text .ft-newslatter .fn-form {
+    position: relative;
+}
+
+.footer-section .footer-text .ft-newslatter .fn-form input {
+    width: 100%;
+    height: 50px;
+    border-radius: 2px;
+    background: #393D4A;
+    border: none;
+    padding-left: 20px;
+    font-size: 16px;
+    color: #707079;
+}
+
+.footer-section .footer-text .ft-newslatter .fn-form button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 16px;
+    background: #dfa974;
+    color: #ffffff;
+    padding: 0 16px;
+    height: 50px;
+    border: none;
+    border-radius: 0 2px 2px 0;
+}
+
+.footer-section .copyright-option {
+    background: #13283d;
+    /* background: rgba(16, 20, 31, 0.2); */
+    padding: 20px 0;
+}
+
+.footer-section .copyright-option ul li {
+    list-style: none;
+    display: inline-block;
+    margin-right: 34px;
+}
+
+.footer-section .copyright-option ul li:last-child {
+    margin-right: 0;
+}
+
+.footer-section .copyright-option ul li a {
+    font-size: 16px;
+    color: #aaaab3;
+}
+
+.footer-section .copyright-option .co-text {
+    font-size: 16px;
+    color: #707079;
+    text-align: right;
+}
+
+/*---------------------
+  Contact Section
+-----------------------*/
+
+.contact-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.contact-text h2 {
+    font-size: 44px;
+    color: #19191a;
+    margin-bottom: 24px;
+}
+
+.contact-text p {
+    color: #707079;
+}
+
+.contact-text table tbody tr td {
+    font-size: 16px;
+    color: #19191a;
+    line-height: 36px;
+    font-weight: 500;
+}
+
+.contact-text table tbody tr td.c-o {
+    color: #707079;
+    width: 75px;
+}
+
+.contact-form input {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #e1e1e1;
+    font-size: 16px;
+    color: #aaaab3;
+    padding-left: 25px;
+    margin-bottom: 28px;
+}
+
+.contact-form input::-webkit-input-placeholder {
+    color: #aaaab3;
+}
+
+.contact-form input::-moz-placeholder {
+    color: #aaaab3;
+}
+
+.contact-form input:-ms-input-placeholder {
+    color: #aaaab3;
+}
+
+.contact-form input::-ms-input-placeholder {
+    color: #aaaab3;
+}
+
+.contact-form input::placeholder {
+    color: #aaaab3;
+}
+
+.contact-form textarea {
+    width: 100%;
+    height: 150px;
+    border: 1px solid #e1e1e1;
+    font-size: 16px;
+    color: #aaaab3;
+    padding-left: 25px;
+    padding-top: 12px;
+    margin-bottom: 33px;
+    resize: none;
+}
+
+.contact-form textarea::-webkit-input-placeholder {
+    color: #aaaab3;
+}
+
+.contact-form textarea::-moz-placeholder {
+    color: #aaaab3;
+}
+
+.contact-form textarea:-ms-input-placeholder {
+    color: #aaaab3;
+}
+
+.contact-form textarea::-ms-input-placeholder {
+    color: #aaaab3;
+}
+
+.contact-form textarea::placeholder {
+    color: #aaaab3;
+}
+
+.contact-form button {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #ffffff;
+    letter-spacing: 2px;
+    background: #dfa974;
+    border: none;
+    padding: 14px 34px 13px;
+    display: inline-block;
+}
+
+.map {
+    height: 470px;
+    -webkit-box-shadow: 0px 14px 35px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 14px 35px rgba(0, 0, 0, 0.15);
+    margin-top: 75px;
+}
+
+.map iframe {
+    width: 100%;
+}
+
+/*---------------------
+  Review Section
+-----------------------*/
+.review-add {
+    padding-bottom: 100px;
+}
+
+.review-add h4 {
+    color: #19191a;
+    letter-spacing: 1px;
+    margin-bottom: 45px;
+}
+
+.review-add .ra-form input {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #e5e5e5;
+    font-size: 16px;
+    color: #aaaab3;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+.review-add .ra-form input::-webkit-input-placeholder {
+    color: #aaaab3;
+}
+
+.review-add .ra-form input::-moz-placeholder {
+    color: #aaaab3;
+}
+
+.review-add .ra-form input:-ms-input-placeholder {
+    color: #aaaab3;
+}
+
+.review-add .ra-form input::-ms-input-placeholder {
+    color: #aaaab3;
+}
+
+.review-add .ra-form input::placeholder {
+    color: #aaaab3;
+}
+
+.review-add .ra-form h5 {
+    font-size: 20px;
+    color: #19191a;
+    margin-bottom: 24px;
+    float: left;
+    margin-right: 10px;
+}
+
+.review-add .ra-form .rating {
+    padding-top: 3px;
+    display: inline-block;
+}
+
+.review-add .ra-form .rating i {
+    color: #f5b917;
+    font-size: 16px;
+}
+
+.review-add .ra-form textarea {
+    width: 100%;
+    height: 132px;
+    border: 1px solid #e5e5e5;
+    font-size: 16px;
+    color: #aaaab3;
+    padding-left: 20px;
+    padding-top: 12px;
+    margin-bottom: 24px;
+    resize: none;
+}
+
+.review-add .ra-form textarea::-webkit-input-placeholder {
+    color: #aaaab3;
+}
+
+.review-add .ra-form textarea::-moz-placeholder {
+    color: #aaaab3;
+}
+
+.review-add .ra-form textarea:-ms-input-placeholder {
+    color: #aaaab3;
+}
+
+.review-add .ra-form textarea::-ms-input-placeholder {
+    color: #aaaab3;
+}
+
+.review-add .ra-form textarea::placeholder {
+    color: #aaaab3;
+}
+
+.review-add .ra-form button {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #ffffff;
+    letter-spacing: 2px;
+    background: #dfa974;
+    border: none;
+    padding: 14px 34px 13px;
+    display: inline-block;
+}
+
+/* Custom styles for the stars */
+.custom-rate .ant-rate-star-first,
+.custom-rate .ant-rate-star-second {
+    color: black;
+    /* Initial black stars */
+}
+
+.custom-rate .ant-rate-star-full .ant-rate-star-second {
+    color: yellow;
+    /* Stars turn yellow on click */
+}

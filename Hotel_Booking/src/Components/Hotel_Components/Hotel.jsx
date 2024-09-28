@@ -3,28 +3,19 @@ import { getRoomList } from '../../Services/Api';
 import Room from '../Room_Components/Room';
 import Loader from '../../Utilits/Loader';
 import Error from '../../Utilits/Error';
-import { DatePicker, Divider, Carousel } from 'antd';
+import { DatePicker, Divider, Tag } from 'antd';
 //import 'antd/dist/antd.css';
 const { RangePicker } = DatePicker;
 import moment from 'moment';
 import './Hotel.css';
+import Review from '../About_Components/Review';
 
 function Hotel() {
 
-    const prevArrow = (
-        <div className="custom-prev-arrow">
-            <i className="bi bi-arrow-left-circle" style={{ fontSize: '34px', color: '#000', fontWeight: 'bolder', position: 'absolute', right: '100%'}}></i>
-        </div>
-    );
-
-    const nextArrow = (
-        <div className="custom-next-arrow">
-            <i className="bi bi-arrow-right-circle" style={{ fontSize: '34px', color: '#000', fontWeight: 'bolder', position: 'absolute', left: '100%'}}></i>
-        </div>
-    );
 
 
     const [roomList, setRoomList] = useState([]);
+
     const [duplicaterooms, setDuplicaterooms] = useState([]);
 
     const [loading, setLoading] = useState(false);
@@ -153,7 +144,7 @@ function Hotel() {
                 </section>
                 {/* <!-- About Us Section End --> */}
 
-                <Divider plain style={{ borderColor: '#7cb305' }}></Divider>
+                <Divider plain style={{ borderColor: '#dfa974'}}></Divider>
                 {/* <!-- Services Section End --> */}
                 <section className="services-section spad">
                     <div className="container">
@@ -218,74 +209,95 @@ function Hotel() {
                     </div>
                 </section>
                 {/* <!-- Services Section End --> */}
-                <Divider plain style={{ borderColor: '#7cb305' }}></Divider>
-
+                <Divider plain style={{ borderColor: '#dfa974' }}></Divider>
 
                 <div className="row justify-content-center w-100">
                     {loading ? (<Loader />) : (
                         roomList.map((room, index) => (
-                            <div className="col-md-9 mb-5" key={index}>
-                                <Room rooms={room} fromdate={fromdate} todate={todate} />
-                            </div>
+                              <div className="col-lg-3 col-md-6" key={index}>
+                                <Room rooms={room} fromdate={fromdate} todate={todate} key={index}/>
+                             </div>
                         ))
                     )}
                 </div>
 
-                <Divider plain style={{ borderColor: '#7cb305' }}></Divider>
+                <Divider plain style={{ borderColor: '#dfa974' }}></Divider>
 
-                {/* <!-- Testimonial Section Begin --> */}
-                <section className="testimonial-section spad">
+                <Review />
+
+                <Divider plain style={{ borderColor: '#dfa974' }}></Divider>
+
+
+                {/* <!-- Blog Section Begin --> */}
+                <section className="blog-section spad">
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-12">
                                 <div className="section-title">
-                                    <span>Testimonials</span>
-                                    <h2>What Customers Say?</h2>
+                                    <span>Hotel News</span>
+                                    <h2>Our Blog & Event</h2>
                                 </div>
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-lg-8 offset-lg-2">
-                                <div className="testimonial-slider owl-carousel">
-                                    <Carousel arrows prevArrow={prevArrow} nextArrow={nextArrow} autoplay>
-                                        <div className="ts-item">
-                                            <p>After a construction project took longer than expected, my husband, my daughter, and I needed a place to stay for a few nights. As a Chicago resident, we know a lot about our city, neighborhood, and the types of housing options available and absolutely love our vacation at Sona Hotel.</p>
-                                            <div className="ti-author">
-                                                <div className="rating">
-                                                    <i className="icon_star"></i>
-                                                    <i className="icon_star"></i>
-                                                    <i className="icon_star"></i>
-                                                    <i className="icon_star"></i>
-                                                    <i className="icon_star-half_alt"></i>
-                                                </div>
-                                                <h5> - Alexander Vasquez</h5>
-                                            </div>
-                                        </div>
-
-                                        <div className="ts-item">
-                                            <p>After a construction project took longer than expected, my husband, my daughter, and I needed a place to stay for a few nights. As a Chicago resident, we know a lot about our city, neighborhood, and the types of housing options available and absolutely love our vacation at Sona Hotel.</p>
-                                            <div className="ti-author">
-                                                <div className="rating">
-                                                    <i className="icon_star"></i>
-                                                    <i className="icon_star"></i>
-                                                    <i className="icon_star"></i>
-                                                    <i className="icon_star"></i>
-                                                    <i className="icon_star-half_alt"></i>
-                                                </div>
-                                                <h5> - Alexander Vasquez</h5>
-
-                                            </div>
-                                        </div>
-                                    </Carousel>
+                            <div className="col-lg-4">
+                                <div className="blog-item set-bg">
+                                    <img src="src/assets/Hotels/img1.jpg" alt="" style={{ width: '100%', height: '350px', display: 'block' }} />
+                                    <div className="bi-text">
+                                        <Tag color="#dfa974" >Travel Trip</Tag>
+                                        <h4><a href="#">Tremblant In Canada</a></h4>
+                                        <div className="b-time"><i className="bi bi-clock"></i> 15th April, 2019</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-lg-4">
+                                <div className="blog-item set-bg">
+                                    <img src="src/assets/Hotels/img1.jpg" alt="" style={{ width: '100%', height: '350px', display: 'block' }} />
+                                    <div className="bi-text">
+                                        <Tag color="#dfa974" >Camping</Tag>
+                                        <h4><a href="#">Choosing A Static Caravan</a></h4>
+                                        <div className="b-time"><i className="bi bi-clock"></i> 15th April, 2019</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-lg-4">
+                                <div className="blog-item set-bg">
+                                    <img src="src/assets/Hotels/img1.jpg" alt="" style={{ width: '100%', height: '350px', display: 'block' }} />
+                                    <div className="bi-text">
+                                        <Tag color="#dfa974" >Event</Tag>
+                                        <h4><a href="#">Copper Canyon</a></h4>
+                                        <div className="b-time"><i className="bi bi-clock"></i> 21th April, 2019</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div className="row mt-3">
+                            <div className="col-lg-8">
+                                <div className="blog-item set-bg">
+                                    <img src="src/assets/Hotels/img1.jpg" alt="" style={{ width: '100%', height: '350px', display: 'block' }} />
+                                    <div className="bi-text">
+                                        <Tag color="#dfa974" >Travel Event</Tag>
+                                        <h4><a href="#">Trip To Iqaluit In Nunavut A Canadian Arctic City</a></h4>
+                                        <div className="b-time"><i className="bi bi-clock"></i> 08th April, 2019</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-lg-4">
+                                <div className="blog-item set-bg">
+                                    <img src="src/assets/Hotels/img1.jpg" alt="" style={{ width: '100%', height: '350px', display: 'block' }} />
+                                    <div className="bi-text">
+                                        <Tag color="#dfa974" >Travel</Tag>
+                                        <h4><a href="#">Traveling To Barcelona</a></h4>
+                                        <div className="b-time"><i className="bi bi-clock"></i> 12th April, 2019</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {/* Additional blog items here... */}
                     </div>
-                </section>
-                {/* <!-- Testimonial Section End --> */}
+                </section >
 
-
-            </div>
+            </div >
         </>
     );
 

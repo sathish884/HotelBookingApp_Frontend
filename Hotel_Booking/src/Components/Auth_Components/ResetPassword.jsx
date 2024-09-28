@@ -31,9 +31,9 @@ function ResetPassword() {
     return (
         <>
             <div className="container d-flex justify-content-center align-items-center p-5" style={{ minHeight: '60vh' }}>
+                {loading && (<Loader />)}
+                {error ? (<Error error={error} />) : ""}
                 <div className="row d-flex justify-content-center align-item-center w-100" style={{ flexDirection: 'column' }}>
-                    {loading && (<Loader />)}
-                    {error ? (<Error error={error} />) : ""}
                     <div className="card p-5 mx-auto bs" style={{ maxWidth: '35rem' }}>
                         <h5 className='text-center'>Reset Password</h5>
                         <form onSubmit={handleSubmit}>
