@@ -14,10 +14,51 @@
     font-size: 16px !important;
 }
 
-.ant-select-selector{
+.ant-select-selector {
     padding: 7px !important;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
 }
-.ant-dropdown-trigger, .ant-table-column-sorter{
+
+.ant-dropdown-trigger,
+.ant-table-column-sorter {
     color: white !important;
+}
+
+
+/* Custom styles for table responsiveness and hover effect */
+
+/* Responsive table wrapper */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    /* Allow horizontal scrolling on small screens */
+}
+
+/* Custom table styling */
+.custom-table {
+    background: #fff;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    /* Smooth transition for hover effects */
+    margin: 0 auto;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 768px) {
+    .custom-table {
+        font-size: 12px;
+        /* Decrease font size for smaller screens */
+    }
+
+    .ant-table-thead>tr>th {
+        white-space: nowrap;
+        /* Prevent table headers from wrapping */
+    }
+
+    .ant-table-cell {
+        white-space: nowrap;
+        /* Prevent cell content from wrapping */
+    }
 }

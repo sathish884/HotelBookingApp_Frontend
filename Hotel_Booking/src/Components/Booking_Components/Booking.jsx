@@ -28,7 +28,7 @@ function Booking() {
     useEffect(() => {
         const getRoom = async () => {
             try {
-                setLoading(true); 
+                setLoading(true);
                 const response = await getSingleRoom(roomid);
                 setRoom(response.data);
                 setLoading(false); // Ensure loading is stopped after success
@@ -41,7 +41,8 @@ function Booking() {
         getRoom();
     }, [roomid]);
 
-    async function onToken(token) {
+    const onToken = async (token) => {
+
         const userObj = sessionStorage.getItem('userObj');
 
         if (!userObj) {
@@ -118,7 +119,6 @@ function Booking() {
                             </div>
 
                             <div style={{ float: 'right' }}>
-
                                 <StripeCheckout
                                     amount={totalamount * 100}
                                     token={onToken}
@@ -126,9 +126,7 @@ function Booking() {
                                     stripeKey="pk_test_51PxieW2KGc3uEogJDyCiZ62PeZ5Y7aKYqjJfIpD9pWC1aascvQo2zZjdsVBK0uw0CljB40QKggvLmKwHAf1mbsiU00A7ZjVDI1"
                                 >
                                     <button className='btn btn-primary'>Pay Now</button>
-
                                 </StripeCheckout>
-
                             </div>
                         </div>
                     </div>
@@ -138,7 +136,6 @@ function Booking() {
             )}
         </div>
     );
-
 }
 
 export default Booking

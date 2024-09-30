@@ -11,22 +11,12 @@ function Room({ rooms, fromdate, todate, difference }) {
     const navigate = useNavigate();
 
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-
-
-    // const handleBookingRoom = (id, fromdate, todate, difference) => {
-
-    //      navigate(`/booking-room/${id}`, { state: { fromdate: fromdate, todate: todate, days: difference } });
-    // };
-
     const handleBookingRoom = (id, fromdate, todate, difference) => {
-        // Check if the user is logged in
         const isuserLoggedIn = sessionStorage.getItem('isUserLoggedIn') === 'true'; // or however you check authentication
         if (!isuserLoggedIn) {
-            // Navigate to login and pass booking info via state
             navigate('/login', {
                 state: {
                     redirectTo: `/booking-room/${id}`,
@@ -34,11 +24,9 @@ function Room({ rooms, fromdate, todate, difference }) {
                 }
             });
         } else {
-            // If logged in, go directly to booking page
             navigate(`/booking-room/${id}`, { state: { fromdate, todate, days: difference } });
         }
     };
-
 
     return (
         <>
@@ -47,10 +35,9 @@ function Room({ rooms, fromdate, todate, difference }) {
                 <div className="container-fluid">
                     <div className="hp-room-items">
                         <div className="row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-
-                            <div className="" style={{ position: 'relative' }}>
-                                <img className='set-bg' src={rooms.imagesurls[0]} alt="" style={{ position: 'absolute' }} />
-                                <div className="hp-room-item">
+                            <div style={{ position: 'relative', borderRadius: '15px', overflow: 'hidden', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+                                <img className='set-bg' src={rooms.imagesurls[0]} alt="" style={{ position: 'absolute', borderRadius: '15px' }} />
+                                <div className="hp-room-item" style={{ borderRadius: '15px' }}>
                                     <div className="hr-text">
                                         <h3>{rooms.name}</h3>
                                         <h2>{rooms.rentperday}$<span>/Perday</span></h2>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Rate, Carousel } from 'antd';
 import { addReviews, getReviewsList } from '../../Services/Api';
+import './About.css'
 
 function Review() {
 
@@ -15,7 +16,6 @@ function Review() {
             <i className="bi bi-arrow-right-circle" style={{ fontSize: '44px', color: '#000', fontWeight: 'bolder', position: 'absolute', left: '100%' }}></i>
         </div>
     );
-
 
     const [reviewForm, setReviewForm] = useState({
         username: '',
@@ -180,6 +180,8 @@ function Review() {
             </section>
         </>
     );
+
+
 }
 
 export default Review

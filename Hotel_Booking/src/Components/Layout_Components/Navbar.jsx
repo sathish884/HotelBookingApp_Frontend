@@ -1,29 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
+import { useAuth } from '../../ContextAPI/AuthProvider';
 
 function Navbar() {
 
-    const [user, setUser] = useState(false);
+    const { logout, user, setUser } = useAuth(); // Use the Auth Context
 
-    // Use useEffect to update the user state on component mount
+    // Check login status on component mount
     useEffect(() => {
         const loggedUser = sessionStorage.getItem('isUserLoggedIn') === 'true';
         setUser(loggedUser);
     }, []);
-
-    const logout = () => {
-        sessionStorage.removeItem('userObj');
-        sessionStorage.removeItem('userToken');
-        sessionStorage.setItem('isUserLoggedIn', 'false');
-        setUser(false);  // Update user state after logout
-
-        // Allow React to re-render and navigate
-        // Option 1: Use window.location.href if needed for full page reload
-        window.location.href = '/hotel';
-
-        // Option 2: Use navigate hook (if you're using react-router-dom)
-        // navigate('/login');
-    };
 
     return (
         <>
@@ -75,9 +62,6 @@ function Navbar() {
             </nav>
         </>
     );
-
-
-
 }
 
 export default Navbar
