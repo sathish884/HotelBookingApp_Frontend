@@ -12,7 +12,7 @@ function AccountActivated() {
     useEffect(() => {
         const activateAccount = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/api/activate/${token}`);
+                const response = await axios.get(`https://hotel-booking-app-backend-ecru.vercel.app/api/activate/${token}`);
                 //  console.log(response);
                 setMessage(response.data.message);
                 setTimeout(() => {

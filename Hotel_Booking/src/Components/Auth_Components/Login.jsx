@@ -100,24 +100,24 @@ function Login() {
 
 
     return (
-        <div className="container d-flex justify-content-center align-items-center p-5" style={{ minHeight: '60vh' }}>
+        <div className="container d-flex justify-content-center align-items-center p-5 auth-page" style={{ minHeight: '60vh' }}>
             {loading && <Loader />}
             <div className="row d-flex justify-content-center align-items-center w-100" style={{ flexDirection: 'column' }}>
                 {error && <Error error={error} />}
-                <div className="card p-5 mx-auto" style={{ maxWidth: '35rem' }}>
-                    <h5 className="text-center">Sign in</h5>
-                    <p className="text-center">For security, please sign in to access your information</p>
+                <div className="card p-5 mx-auto auth-card" style={{ maxWidth: '35rem' }}>
+                    <h5 className="text-center text-white">Sign in</h5>
+                    <p className="text-center text-white">For security, please sign in to access your information</p>
                     <form onSubmit={handleLogin}>
                         <div className="row mb-3">
                             <div className="col-12">
-                                <label className="form-label" htmlFor="email">Email</label>
-                                <input type="email" className="form-control" name="email" value={loginData.email} onChange={handleChange} required />
+                                <label className="form-label text-white" htmlFor="email">Email</label>
+                                <input type="email" className="form-control transparent-input" name="email" value={loginData.email} onChange={handleChange} required />
                             </div>
                         </div>
                         <div className="row mb-5">
                             <div className="col-12">
-                                <label className="form-label" htmlFor="password">Password</label>
-                                <input type="password" className="form-control" name="password" value={loginData.password} onChange={handleChange} required />
+                                <label className="form-label text-white" htmlFor="password">Password</label>
+                                <input type="password" className="form-control transparent-input" name="password" value={loginData.password} onChange={handleChange} required />
                             </div>
                         </div>
                         <div className="row mb-3">
@@ -127,22 +127,22 @@ function Login() {
                         </div>
                         <div className="row mb-3">
                             <div className="col-12 d-flex justify-content-between">
-                                <Link to="/register">Create account</Link>
-                                <Link to="/forgot-password">Forget password</Link>
+                                <Link className='text-white' to="/register">Create account</Link>
+                                <Link className='text-white' to="/forgot-password">Forget password</Link>
                             </div>
                         </div>
                         <div className="row mb-3">
                             <div className="col-12 d-flex align-items-center justify-content-center">
-                                <hr className="flex-grow-1" />
-                                <p className="mx-3 mb-0">or sign in with</p>
-                                <hr className="flex-grow-1" />
+                                <hr className="flex-grow-1 text-white" />
+                                <p className="mx-3 mb-0 text-white">or sign in with</p>
+                                <hr className="flex-grow-1 text-white" />
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-12">
-                                <button type="button" className="btn btn-outline-secondary w-100">
+                                <button type="button" className="btn btn-outline-secondary w-100 border border-white">
                                     <img src="src/assets/imgs/google.webp" alt="Google" width={30} height={30} className="me-2" />
-                                    <b>Google</b>
+                                    <b className='text-white'>Google</b>
                                 </button>
                             </div>
                         </div>
@@ -152,7 +152,7 @@ function Login() {
 
             <Modal show={show} onHide={handleClose} animation={false}>
                 <Modal.Header closeButton>
-                    <Modal.Title>OTP</Modal.Title>
+                    <Modal.Title>OTP Verification <br /> <span style={{fontSize:'16px'}}>Verify your One time password (otp)</span></Modal.Title>   
                 </Modal.Header>
                 <Modal.Body>
                     <div className="d-flex justify-content-center">

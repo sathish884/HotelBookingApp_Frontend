@@ -2,6 +2,7 @@ import React from 'react'
 import { Layout, Col, Row } from 'antd';
 const { Footer } = Layout;
 import './Footers.css';
+import { Link } from 'react-router-dom';
 
 const style = {
     // background: '#0092ff',
@@ -86,7 +87,7 @@ function Footers() {
                                 <div className="ft-about">
                                     <div className="logo">
                                         <a href="#">
-                                            <img src="img/footer-logo.png" alt="" />
+                                            <img src="https://i.pinimg.com/736x/f2/ba/75/f2ba75f08927193a60cf961a6c7af008.jpg" width={250} height={100} alt="" />
                                         </a>
                                     </div>
                                     <p>We inspire and reach millions of travelers<br /> across 90 local websites</p>
@@ -127,7 +128,7 @@ function Footers() {
                         <div className="row">
                             <div className="col-lg-7">
                                 <ul style={{ padding: '0px' }}>
-                                    <li><a href="#" style={{textDecoration:'none'}}>Contact</a></li>
+                                    <li><Link style={{textDecoration:'none'}} to={'/contact'}>Contact</Link></li>
                                     <li><a href="#" style={{textDecoration:'none'}}>Terms of use</a></li>
                                     <li><a href="#" style={{textDecoration:'none'}}>Privacy</a></li>
                                     <li><a href="#" style={{textDecoration:'none'}}>Environmental Policy</a></li>

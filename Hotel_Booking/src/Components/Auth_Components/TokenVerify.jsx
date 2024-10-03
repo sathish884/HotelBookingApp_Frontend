@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { tokenVerify } from '../../Services/Api'
+import Loader from '../../Utilits/Loader';
 import Error from '../../Utilits/Error';
 
 function TokenVerify() {
@@ -26,17 +27,17 @@ function TokenVerify() {
 
     return (
         <>
-            <div className="container d-flex justify-content-center align-items-center" style={{ minHeight: '60vh' }}>
+            <div className="container d-flex justify-content-center align-items-center p-5 auth-page" style={{ minHeight: '60vh' }}>
                 {loading && (<Loader />)}
                 {error ? (<Error error={error} />) : ""}
                 <div className="row d-flex justify-content-center align-item-center w-100" style={{ flexDirection: 'column' }}>
-                    <div className="card p-5 mx-auto bs" style={{ maxWidth: '35rem' }}>
-                        <h5 className='text-center'>Verify Token</h5>
+                    <div className="card p-5 mx-auto auth-card" style={{ maxWidth: '35rem' }}>
+                        <h5 className='text-center text-white'>Verify Token</h5>
                         <form onSubmit={handleSubmit}>
                             <div className="row mb-3">
                                 <div className="col-12">
-                                    <label className='form-label' htmlFor="email">Token</label>
-                                    <input type="text" className="form-control" name="token" value={token} onChange={(e) => setToken(e.target.value)} required />
+                                    <label className='form-label text-white' htmlFor="email">Token</label>
+                                    <input type="text" className="form-control transparent-input" name="token" value={token} onChange={(e) => setToken(e.target.value)} required />
                                 </div>
                             </div>
 

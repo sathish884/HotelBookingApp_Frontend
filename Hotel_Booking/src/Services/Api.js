@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiClient = axios.create({
-    baseURL: 'http://localhost:3000/api',
+    baseURL: 'https://hotel-booking-app-backend-ecru.vercel.app/api',
 });
 
 // --------------------------------------------------------------- Rooms --------------------------------------------------
@@ -192,9 +192,16 @@ export const addContact = async (body) => {
 }
 
 // Get Contact list
-export const getContactList = async (body) => {
+export const getContactList = async () => {
+    const token = JSON.parse(sessionStorage.getItem('userToken'));
+    console.log(token);
+    
     try {
-        const response = await apiClient.get('/getAllContact', body);
+        const headers = {
+            'Authorization': `${token}`,  // Pass Bearer token in header
+            'Content-Type': 'application/json'  // Specify JSON content type
+        };
+        const response = await apiClient.get('/getAllContact', { headers });
         return response;
     } catch (error) {
         throw error;

@@ -5,6 +5,7 @@ import { getRoomsByUser, cancelBookingRooms } from '../../Services/Api';
 import Swal from 'sweetalert2';
 import { Tag } from 'antd';
 import './Profile.css'
+import moment from 'moment';
 
 function MyBookings() {
 
@@ -83,8 +84,8 @@ function MyBookings() {
                                     <h3 className='text-center mb-3'>{booking.room}</h3>
                                     {/* Display booking details */}
                                     <p><b>Booking ID</b>: <span className='p-3'>{booking._id}</span></p>
-                                    <p><b>Check In</b>: <span className='p-3'>{booking.fromdate}</span></p>
-                                    <p><b>Check Out</b>: <span className='p-3'>{booking.todate}</span></p>
+                                    <p><b>Check In</b>: <span className='p-3'>{moment(booking.fromdate).format('DD-MM-YYYY')}</span></p>
+                                    <p><b>Check Out</b>: <span className='p-3'>{moment(booking.todate).format('DD-MM-YYYY')}</span></p>
                                     <p><b>Amount</b>: <span className='p-3'>{booking.totalamount}</span></p>
                                     {/* Display booking status with color tags */}
                                     <p><b>Status</b>: {booking.status === 'booked' ? (

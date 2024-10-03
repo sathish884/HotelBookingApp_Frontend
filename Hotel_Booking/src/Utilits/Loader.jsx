@@ -13,7 +13,7 @@ function Loader() {
     <>
       <div className="sweet-loading">
         <HashLoader className='loader'
-          color='#e60857'
+          color='#ffff'
           loading={loading} cssOverride={override}
           size={80}
           aria-label="Loading Spinner"

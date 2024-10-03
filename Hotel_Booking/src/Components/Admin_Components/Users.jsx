@@ -19,6 +19,14 @@ function Users() {
     {
       title: 'Email',
       dataIndex: 'email',
+    },
+    {
+      title: 'Role',
+      dataIndex: 'role',
+    },
+    {
+      title: 'Mobile Number',
+      dataIndex: 'mobilenumber',
     }
   ];
 

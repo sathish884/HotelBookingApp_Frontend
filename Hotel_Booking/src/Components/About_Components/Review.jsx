@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Rate, Carousel } from 'antd';
 import { addReviews, getReviewsList } from '../../Services/Api';
-import './About.css'
 
 function Review() {
 
@@ -62,7 +61,6 @@ function Review() {
         } catch (error) {
             console.log('Error:', error);
         }
-
     };
 
     useEffect(() => {
@@ -70,8 +68,6 @@ function Review() {
             try {
                 setLoading(true);
                 const response = await getReviewsList();
-                console.log(response);
-
                 setReviewList(response.data);
                 setLoading(false);
             } catch (error) {
@@ -90,8 +86,8 @@ function Review() {
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="section-title">
-                                <span>Testimonials</span>
-                                <h2>What Customers Say?</h2>
+                                <span style={{fontSize:'17px'}}>Testimonials</span>
+                                <h2>What Our Guests Are Saying</h2>
                             </div>
                         </div>
                     </div>
@@ -123,9 +119,10 @@ function Review() {
                 </div>
             </section>
 
-            <section>
+            <section className='pt-5'>
                 <div className="review-add">
-                    <h4>Add Review</h4>
+                    <h2 className="text-center">We Value Your Feedback</h2>
+                    <p className="mb-5 text-center">Share your experience with us and help other guests make informed decisions. Your review matters!</p>
                     <form className="ra-form" onSubmit={handleSubmit}>
                         <div className="row">
                             <div className="col-lg-6">
@@ -170,7 +167,7 @@ function Review() {
                                     style={{ boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)' }}
                                     onChange={handleChangeField}
                                 ></textarea>
-                                <button className="btn btn-outline-success" type="submit">
+                                <button className="btn" type="submit">
                                     Submit Now
                                 </button>
                             </div>

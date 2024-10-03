@@ -63,11 +63,6 @@ function AddRoom() {
 
   const [selectedImages, setSelectedImages] = useState([]);
 
-  // // Handle image selection
-  // const handleImageChange = (e) => {
-  //   const files = Array.from(e.target.files);
-  //   setSelectedImages(files);
-  // };
 
   // Handle removing an image from the preview
   const handleRemoveImage = (indexToRemove) => {
@@ -85,7 +80,6 @@ function AddRoom() {
     const imageUrls = files.map(file => URL.createObjectURL(file));
     setFieldValue('imagesurls', imageUrls); // Store image URLs in the form
   };
-
 
 
   const onSubmit = async (values, { resetForm }) => {

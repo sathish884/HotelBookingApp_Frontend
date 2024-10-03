@@ -7,9 +7,9 @@ function MyProfile() {
 
     return (
         <div className="container mt-3">
-            <div className="row">
+            <div className="row m-3">
                 <div className="col-xl-3 col-lg-4 col-md-5 col-sm-6">
-                    <div className="card h-100">
+                    <div className="card h-100" style={{boxShadow: '0px 14px 35px rgba(0, 0, 0, 0.15)'}}>
                         <div className="card-body text-center">
                             <div className="user-profile-leftside-content">
                                 <div className="user-profile img-thumbnail">
@@ -25,7 +25,7 @@ function MyProfile() {
                 </div>
                 <div className="col-xl-9 col-lg-8 col-md-7 col-sm-6">
                     <div className="card h-100">
-                        <div className="card-body p-3">
+                        <div className="card-body p-5" style={{boxShadow: '0px 14px 35px rgba(0, 0, 0, 0.15)'}}>
                             <div className="row">
                                 <div className="col-12">
                                     <h5 className="mb-3 text-primary">Personal Details</h5>
@@ -49,7 +49,7 @@ function MyProfile() {
                             <div className="row">
                                 <div className="col-12 col-md-6">
                                     <h6>Mobile Number</h6>
-                                    {/* <p>{userDetails.mobileNumber}</p> */}
+                                    <p>{userDetails.mobilenumber}</p>
                                 </div>
                             </div>
                         </div>
