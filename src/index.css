@@ -64,6 +64,16 @@ body {
     color: #fff;
 }
 
+.modal-header {
+    display: flex;
+    justify-content: center !important;
+    flex-shrink: 0;
+    align-items: center;
+    padding: var(--bs-modal-header-padding);
+    border-bottom: var(--bs-modal-header-border-width) solid var(--bs-modal-header-border-color);
+    border-top-left-radius: var(--bs-modal-inner-border-radius);
+    border-top-right-radius: var(--bs-modal-inner-border-radius);
+}
 
 /* <button class="button-89" role="button">Button 89</button> */
 
@@ -115,7 +125,7 @@ body {
 -----------------------*/
 
 .auth-page {
-    background-image: url('./assets/imgs//login-back.jpg');
+    background-image: url('imgs/login-back.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -221,7 +231,7 @@ body {
 -----------------------*/
 
 .hotel-backimg {
-    background-image: url('./assets//imgs/background1.jpg');
+    background-image: url('imgs/background1.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -289,7 +299,7 @@ body {
 
 .services-section {
     padding: 60px 0;
-    background-image: url('./assets//imgs/bg-1.jpg');
+    background-image: url('imgs/bg-1.jpg');
     width: 100%;
     min-width: 100%;
     background-position: center;
@@ -435,7 +445,7 @@ body {
 
 .testimonial-section {
     background: #f5f5f5;
-    background-image: url('./assets//imgs/bg-3.webp');
+    background-image: url('imgs/bg-3.webp');
     width: 100%;
     min-width: 100%;
     background-position: center;
@@ -639,7 +649,7 @@ body {
 
 .blog-section {
     padding-bottom: 0px 70px;
-    background-image: url('./assets//imgs/bg-4.jpg');
+    background-image: url('imgs/bg-4.jpg');
     width: 100%;
     min-width: 100%;
     background-position: center;
@@ -932,10 +942,33 @@ body {
 .map {
     height: 470px;
     -webkit-box-shadow: 0px 14px 35px rgba(0, 0, 0, 0.15);
-    box-shadow: 0px 14px 35px rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     margin-top: 75px;
 }
 
 .map iframe {
     width: 100%;
+}
+
+/*---------------------
+  Booking Section
+-----------------------*/
+
+.booking-section {
+    background-image: url('imgs/booking.jpg');
+    width: 100%;
+    min-width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.booking-items {
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.41);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }

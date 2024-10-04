@@ -98,13 +98,13 @@ function Hotel() {
 
     return (
         <>
-            {loading ? <Loader /> : ""}
+            {/* {loading ? <Loader /> : ""} */}
             <div className="row hotel-backimg d-flex flex-row justify-content-center align-items-center">
 
                 {/* Content above the filter box */}
                 <div className="text-center mb-5 text-content">
                     <h1 className='text-white'><b> Discover Your Perfect Stay</b></h1>
-                    <p className="text-white" style={{fontSize:'17px'}}><b>Find the ideal room that matches your style and comfort. Search from a variety of luxurious options and book your next getaway.</b></p>
+                    <p className="text-white" style={{ fontSize: '17px' }}><b>Find the ideal room that matches your style and comfort. Search from a variety of luxurious options and book your next getaway.</b></p>
                 </div>
 
                 {/* Filter Box */}
@@ -145,18 +145,18 @@ function Hotel() {
                             <div className="col-lg-6">
                                 <div className="about-text">
                                     <div className="section-title">
-                                        <span style={{fontSize:'17px'}}>About Us</span>
+                                        <span style={{ fontSize: '17px' }}>About Us</span>
                                         <h2>Intercontinental LA <br /> Westlake Hotel</h2>
                                     </div>
                                     {/* Short description that always shows */}
-                                    <p className="f-para" style={{fontSize:'17px'}}>
-                                        Sona.com is a leading online accommodation site. We’re passionate about travel. Every day,
+                                    <p className="f-para" style={{ fontSize: '17px' }}>
+                                        Royal.com is a leading online accommodation site. We’re passionate about travel. Every day,
                                         we inspire and reach millions of travelers across 90 local websites in 41 languages.
                                     </p>
 
                                     {/* Conditionally rendered full description */}
                                     {isExpanded && (
-                                        <p className="s-para" style={{fontSize:'17px'}}>
+                                        <p className="s-para" style={{ fontSize: '17px' }}>
                                             Our hotel offers world-class amenities, from luxurious suites and fine dining
                                             to spa treatments and a rooftop pool with stunning views of Los Angeles.
                                             Whether you're visiting for business or pleasure, Intercontinental LA Westlake
@@ -181,7 +181,7 @@ function Hotel() {
                                 <div className="about-pic">
                                     <div className="row">
                                         <div className="col-sm-6">
-                                            <img src="src/assets/imgs/img1.jpg" alt="Hotel Image" />
+                                            <img src="imgs/hotel-img.jpg" alt="Hotel Image" />
                                         </div>
                                     </div>
                                 </div>
@@ -199,7 +199,7 @@ function Hotel() {
                         <div className="row mb-3">
                             <div className="col-lg-12">
                                 <div className="section-title text-center">
-                                    <span style={{fontSize:'17px'}}>What We Do</span>
+                                    <span style={{ fontSize: '17px' }}>What We Do</span>
                                     <h2 className='text-white'>Discover Our Services</h2>
                                     <p className='text-white'>At our hotel, we are dedicated to providing an exceptional experience for every guest. From luxurious accommodations to a wide range of amenities, our services are designed to cater to your every need. Explore our offerings, including gourmet dining, relaxing spa treatments, and tailored event services, all aimed at making your stay unforgettable.</p>
                                 </div>
@@ -259,7 +259,7 @@ function Hotel() {
                 <div className="row justify-content-center w-100">
                     <div className="col-lg-12 pt-5">
                         <div className="section-title text-center">
-                            <span style={{fontSize:'17px'}}>Our Rooms</span>
+                            <span style={{ fontSize: '17px' }}>Our Rooms</span>
                             <h2>Your Perfect Stay Awaits</h2>
                             <p>Discover our diverse range of rooms designed for comfort and relaxation. Whether you’re traveling for business or pleasure, we offer a variety of accommodations tailored to meet your needs. Explore our options and book your ideal getaway today!</p>
                         </div>
@@ -284,7 +284,7 @@ function Hotel() {
                         <div className="row mb-3">
                             <div className="col-lg-12">
                                 <div className="section-title">
-                                    <span style={{fontSize:'17px'}}>Hotel News</span>
+                                    <span style={{ fontSize: '17px', color:'#df750e'}}>Hotel News</span>
                                     <h2>Stay Updated with Our Latest News & Events</h2>
                                     <p>Explore our blog for the latest updates, travel tips, and exclusive hotel events. Stay informed about special promotions, upcoming celebrations, and insider insights on making the most of your stay with us.</p>
                                 </div>
@@ -293,7 +293,7 @@ function Hotel() {
                         <div className="row">
                             <div className="col-lg-4 mb-3">
                                 <div className="blog-item set-bg">
-                                    <img src="src/assets/Rooms/blogs/img-1.jpg" alt="Tremblant In Canada" style={{ width: '100%', height: '350px', display: 'block' }} />
+                                    <img src="rooms/blogs/tremplant.jpg" alt="Tremblant In Canada" style={{ width: '100%', height: '350px', display: 'block' }} />
                                     <div className="bi-text">
                                         <Tag color="#dfa974">Travel Trip</Tag>
                                         <h4><a href="#">Tremblant In Canada</a></h4>
@@ -304,7 +304,7 @@ function Hotel() {
                             </div>
                             <div className="col-lg-4 mb-3">
                                 <div className="blog-item set-bg">
-                                    <img src="src/assets/Rooms/blogs/img-8.jpg" alt="Choosing A Static Caravan" style={{ width: '100%', height: '350px', display: 'block' }} />
+                                    <img src="rooms/blogs/carvan.jpg" alt="Choosing A Static Caravan" style={{ width: '100%', height: '350px', display: 'block' }} />
                                     <div className="bi-text">
                                         <Tag color="#dfa974">Camping</Tag>
                                         <h4><a href="#">Choosing A Static Caravan</a></h4>
@@ -315,7 +315,7 @@ function Hotel() {
                             </div>
                             <div className="col-lg-4">
                                 <div className="blog-item set-bg">
-                                    <img src="src/assets/Rooms/blogs/img-6.jpg" alt="Copper Canyon" style={{ width: '100%', height: '350px', display: 'block' }} />
+                                    <img src="rooms/blogs/cooper1.jpg" alt="Copper Canyon" style={{ width: '100%', height: '350px', display: 'block' }} />
                                     <div className="bi-text">
                                         <Tag color="#dfa974">Event</Tag>
                                         <h4><a href="#">Copper Canyon</a></h4>
@@ -328,7 +328,7 @@ function Hotel() {
                         <div className="row mt-3">
                             <div className="col-lg-8 mb-3">
                                 <div className="blog-item set-bg">
-                                    <img src="src/assets/Rooms/blogs/img-4.jpg" alt="Trip To Iqaluit" style={{ width: '100%', height: '350px', display: 'block' }} />
+                                    <img src="rooms/blogs/nunavut1.jpg" alt="Trip To Iqaluit" style={{ width: '100%', height: '350px', display: 'block' }} />
                                     <div className="bi-text">
                                         <Tag color="#dfa974">Travel Event</Tag>
                                         <h4><a href="#">Trip To Iqaluit In Nunavut A Canadian Arctic City</a></h4>
@@ -339,7 +339,7 @@ function Hotel() {
                             </div>
                             <div className="col-lg-4">
                                 <div className="blog-item set-bg">
-                                    <img src="src/assets/Rooms/blogs/img-2.jpg" alt="Traveling To Barcelona" style={{ width: '100%', height: '350px', display: 'block' }} />
+                                    <img src="rooms/blogs/barcilona.jpg" alt="Traveling To Barcelona" style={{ width: '100%', height: '350px', display: 'block' }} />
                                     <div className="bi-text">
                                         <Tag color="#dfa974">Travel</Tag>
                                         <h4><a href="#">Traveling To Barcelona</a></h4>
@@ -352,11 +352,9 @@ function Hotel() {
                     </div>
                 </section>
                 {/* <!-- Blog Section End --> */}
-
             </div >
         </>
     );
-
 }
 
 export default Hotel

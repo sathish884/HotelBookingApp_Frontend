@@ -55,30 +55,30 @@ function Contact() {
                     <div className="row">
                         <div className="col-lg-4">
                             <div className="contact-text">
-                                <h2>Contact Info</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                                    labore et dolore magna aliqua.</p>
+                                <h2>Contact Information</h2>
+                                <p style={{fontSize:'16px'}}>We are here to assist you with any inquiries or concerns. Feel free to reach out to us through any of the following contact methods, and our team will be happy to help you.</p>
                                 <table>
                                     <tbody>
                                         <tr>
                                             <td className="c-o">Address:</td>
-                                            <td>856 Cordia Extension Apt. 356, Lake, US</td>
+                                            <td>1234 Main Street, Suite 500, Springfield, USA</td>
                                         </tr>
                                         <tr>
                                             <td className="c-o">Phone:</td>
-                                            <td>(12) 345 67890</td>
+                                            <td>+1 (555) 123-4567</td>
                                         </tr>
                                         <tr>
                                             <td className="c-o">Email:</td>
-                                            <td>info.colorlib@gmail.com</td>
+                                            <td>contact@ourcompany.com</td>
                                         </tr>
                                         <tr>
                                             <td className="c-o">Fax:</td>
-                                            <td>+(12) 345 67890</td>
+                                            <td>+1 (555) 987-6543</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
+
                         </div>
                         <div className="col-lg-7 offset-lg-1">
                             <form action="#" className="contact-form" onSubmit={handleSubmit}>
@@ -98,12 +98,12 @@ function Contact() {
                         </div>
                     </div>
                     <div className="map">
-                        <MapContainer center={[20.5937, 78.9629]} zoom={13} style={{ height: "500px", width: "100%" }}>
+                        <MapContainer center={[39.799999, -89.650002]} zoom={13} style={{ height: "500px", width: "100%"}}>
                             <TileLayer
                                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                             />
-                            <Marker position={[20.5937, 78.9629]}>
+                            <Marker position={[39.799999, -89.650002]}>
                                 <Popup>
                                     A sample popup.<br /> Easily customizable.
                                 </Popup>

@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import './Room.css'
 import { Modal, Carousel } from 'react-bootstrap';
 import { Col, Row, Badge } from 'antd';
-import { PiCurrencyInrBold } from "react-icons/pi"
+import { BsCurrencyDollar } from "react-icons/bs"
 
 const style = { background: 'rgb(80 107 127)', textAlign: 'center', fontSize: '17px', padding: '10px !important' };
 
@@ -43,12 +43,12 @@ function Room({ rooms, fromdate, todate, difference }) {
                                     <div className="hp-room-item" style={{ borderRadius: '15px' }}>
                                         <div className="hr-text">
                                             <h3>{rooms.name}</h3>
-                                            <h2>{rooms.rentperday}<PiCurrencyInrBold /><span>/Perday</span></h2>
+                                            <h2>{rooms.rentperday}<BsCurrencyDollar /><span>/ Perday</span></h2>
                                             <table>
                                                 <tbody>
                                                     <tr>
                                                         <td className="r-o">Size:</td>
-                                                        <td>30 ft</td>
+                                                        <td>50 ft</td>
                                                     </tr>
                                                     <tr>
                                                         <td className="r-o">Capacity:</td>
@@ -56,7 +56,7 @@ function Room({ rooms, fromdate, todate, difference }) {
                                                     </tr>
                                                     <tr>
                                                         <td className="r-o">Bed:</td>
-                                                        <td>King Beds</td>
+                                                        <td>{rooms.bed}</td>
                                                     </tr>
                                                     <tr>
                                                         <td className="r-o">Services:</td>

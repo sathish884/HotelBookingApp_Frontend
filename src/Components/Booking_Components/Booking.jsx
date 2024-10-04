@@ -79,62 +79,68 @@ function Booking() {
     }
 
     return (
-        <div className='m-5'>
-            {loading ? (
-                <Loader />
-            ) : error ? (
-                <Error />
-            ) : room ? (
-                <div className='room pt-3 pb-5'>
-                    <div className="row justify-content-center mt-5">
-                        <div className="col-md-5">
-                            <h2 className='pb-2'>{room.name}</h2>
-                            {room.imagesurls && room.imagesurls.length > 0 ? (
-                                <img className='room-img w-100' src={room.imagesurls[0]} alt="Room" />
-                            ) : (
-                                <p>No image available</p>
-                            )}
+        <>
+            <div className="container booking-section">
+
+
+                <div className='m-5 booking-items'>
+                    {loading ? (
+                        <Loader />
+                    ) : error ? (
+                        <Error />
+                    ) : room ? (
+                        <div className='room pt-3 pb-5'>
+                            <div className="row justify-content-center mt-5">
+                                <div className="col-md-5">
+                                    <h2 className='pb-2'>{room.name}</h2>
+                                    {room.imagesurls && room.imagesurls.length > 0 ? (
+                                        <img className='room-img w-100' src={room.imagesurls[0]} alt="Room" />
+                                    ) : (
+                                        <p>No image available</p>
+                                    )}
+                                </div>
+
+                                <div className="col-md-5">
+                                    <div style={{ textAlign: 'right' }}>
+                                        <h2 className='pb-2'>Booking Details</h2>
+                                        <hr />
+                                        <b>
+                                            <p><span style={{fontSize:'17px'}}>Name</span>&nbsp;: {room.name}</p>
+                                            <p><span style={{fontSize:'17px'}}>From Date</span>&nbsp;: {fromdate}</p>
+                                            <p><span style={{fontSize:'17px'}}>To Date</span>&nbsp;: {todate}</p>
+                                            <p><span style={{fontSize:'17px'}}>Max Count</span>&nbsp;: {room.maxCount}</p>
+                                        </b>
+                                    </div>
+
+                                    <div style={{ textAlign: 'right' }}>
+                                        <h2>Amount</h2>
+                                        <hr />
+                                        <b>
+                                            <p><span style={{fontSize:'17px'}}>Total days</span>&nbsp;: {totaldays}</p>
+                                            <p><span style={{fontSize:'17px'}}>Rent per day</span>&nbsp;: {room.rentperday}</p>
+                                            <p><span style={{fontSize:'17px'}}>Total Amount</span>&nbsp;: {totalamount}</p>
+                                        </b>
+                                    </div>
+
+                                    <div style={{ float: 'right' }}>
+                                        <StripeCheckout
+                                            amount={totalamount * 100}
+                                            token={onToken}
+                                            currency='INR'
+                                            stripeKey="pk_test_51PxieW2KGc3uEogJDyCiZ62PeZ5Y7aKYqjJfIpD9pWC1aascvQo2zZjdsVBK0uw0CljB40QKggvLmKwHAf1mbsiU00A7ZjVDI1"
+                                        >
+                                            <button className='btn btn-primary'>Pay Now</button>
+                                        </StripeCheckout>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-
-                        <div className="col-md-5">
-                            <div style={{ textAlign: 'right' }}>
-                                <h2 className='pb-2'>Booking Details</h2>
-                                <hr />
-                                <b>
-                                    <p>Name: {room.name}</p>
-                                    <p>From Date: {fromdate}</p>
-                                    <p>To Date: {todate}</p>
-                                    <p>Max Count: {room.maxCount}</p>
-                                </b>
-                            </div>
-
-                            <div style={{ textAlign: 'right' }}>
-                                <h2>Amount</h2>
-                                <hr />
-                                <b>
-                                    <p>Total days: {totaldays}</p>
-                                    <p>Rent per day: {room.rentperday}</p>
-                                    <p>Total Amount: {totalamount}</p>
-                                </b>
-                            </div>
-
-                            <div style={{ float: 'right' }}>
-                                <StripeCheckout
-                                    amount={totalamount * 100}
-                                    token={onToken}
-                                    currency='INR'
-                                    stripeKey="pk_test_51PxieW2KGc3uEogJDyCiZ62PeZ5Y7aKYqjJfIpD9pWC1aascvQo2zZjdsVBK0uw0CljB40QKggvLmKwHAf1mbsiU00A7ZjVDI1"
-                                >
-                                    <button className='btn btn-primary'>Pay Now</button>
-                                </StripeCheckout>
-                            </div>
-                        </div>
-                    </div>
+                    ) : (
+                        <Error message="Room not found" />
+                    )}
                 </div>
-            ) : (
-                <Error message="Room not found" />
-            )}
-        </div>
+            </div>
+        </>
     );
 }
 

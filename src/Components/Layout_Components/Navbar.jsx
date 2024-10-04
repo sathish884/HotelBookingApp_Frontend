@@ -40,7 +40,7 @@ function Navbar() {
                                 </li>
                                 <div className="">
                                     <li className="nav-item">
-                                        <img className='rounded-circle img-thumbnail' src="src/assets/imgs/userprofile.png" width={50} height={50} alt="Profile" />
+                                        <img className='rounded-circle img-thumbnail' src="imgs/user-profile.webp" width={50} height={50} alt="Profile" />
                                     </li>
                                 </div>
                             </>
