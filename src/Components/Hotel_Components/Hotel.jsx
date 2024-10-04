@@ -79,6 +79,22 @@ function Hotel() {
         }
     };
 
+    // const filterByDate = (dates) => {
+    //     var temprooms = [];
+    //     var availability = false;
+    //     if (dates && dates.length === 2) {
+    //         const startDate = dates[0].$d;
+    //         const endDate = dates[1].$d;
+
+    //         const fromDate = moment(startDate).format('DD-MM-YYYY');
+    //         const toDate = moment(endDate).format('DD-MM-YYYY');
+    //         setFromDate(fromDate);
+    //         setToDate(toDate);
+    //     }
+
+
+    // }
+
     // Filter the rooms by search
     const filterBySearch = () => {
         const temprooms = duplicaterooms.filter(room => room.name.toLowerCase().includes(searchkey.toLowerCase()));
@@ -181,7 +197,7 @@ function Hotel() {
                                 <div className="about-pic">
                                     <div className="row">
                                         <div className="col-sm-6">
-                                            <img src="imgs/hotel-img.jpg" alt="Hotel Image" />
+                                            <img src="src/assets/imgs/hotel-img.jpg" alt="Hotel Image" />
                                         </div>
                                     </div>
                                 </div>
@@ -284,7 +300,7 @@ function Hotel() {
                         <div className="row mb-3">
                             <div className="col-lg-12">
                                 <div className="section-title">
-                                    <span style={{ fontSize: '17px', color:'#df750e'}}>Hotel News</span>
+                                    <span style={{ fontSize: '17px', color: '#df750e' }}>Hotel News</span>
                                     <h2>Stay Updated with Our Latest News & Events</h2>
                                     <p>Explore our blog for the latest updates, travel tips, and exclusive hotel events. Stay informed about special promotions, upcoming celebrations, and insider insights on making the most of your stay with us.</p>
                                 </div>
@@ -293,7 +309,7 @@ function Hotel() {
                         <div className="row">
                             <div className="col-lg-4 mb-3">
                                 <div className="blog-item set-bg">
-                                    <img src="rooms/blogs/tremplant.jpg" alt="Tremblant In Canada" style={{ width: '100%', height: '350px', display: 'block' }} />
+                                    <img src="src/assets/imgs/rooms/blogs/tremplant.jpg" alt="Tremblant In Canada" style={{ width: '100%', height: '350px', display: 'block' }} />
                                     <div className="bi-text">
                                         <Tag color="#dfa974">Travel Trip</Tag>
                                         <h4><a href="#">Tremblant In Canada</a></h4>
@@ -304,7 +320,7 @@ function Hotel() {
                             </div>
                             <div className="col-lg-4 mb-3">
                                 <div className="blog-item set-bg">
-                                    <img src="rooms/blogs/carvan.jpg" alt="Choosing A Static Caravan" style={{ width: '100%', height: '350px', display: 'block' }} />
+                                    <img src="src/assets/imgs/rooms/blogs/carvan.jpg" alt="Choosing A Static Caravan" style={{ width: '100%', height: '350px', display: 'block' }} />
                                     <div className="bi-text">
                                         <Tag color="#dfa974">Camping</Tag>
                                         <h4><a href="#">Choosing A Static Caravan</a></h4>
@@ -315,7 +331,7 @@ function Hotel() {
                             </div>
                             <div className="col-lg-4">
                                 <div className="blog-item set-bg">
-                                    <img src="rooms/blogs/cooper1.jpg" alt="Copper Canyon" style={{ width: '100%', height: '350px', display: 'block' }} />
+                                    <img src="src/assets/imgs/rooms/blogs/cooper1.jpg" alt="Copper Canyon" style={{ width: '100%', height: '350px', display: 'block' }} />
                                     <div className="bi-text">
                                         <Tag color="#dfa974">Event</Tag>
                                         <h4><a href="#">Copper Canyon</a></h4>
@@ -328,7 +344,7 @@ function Hotel() {
                         <div className="row mt-3">
                             <div className="col-lg-8 mb-3">
                                 <div className="blog-item set-bg">
-                                    <img src="rooms/blogs/nunavut1.jpg" alt="Trip To Iqaluit" style={{ width: '100%', height: '350px', display: 'block' }} />
+                                    <img src="src/assets/imgs/rooms/blogs/nunavut1.jpg" alt="Trip To Iqaluit" style={{ width: '100%', height: '350px', display: 'block' }} />
                                     <div className="bi-text">
                                         <Tag color="#dfa974">Travel Event</Tag>
                                         <h4><a href="#">Trip To Iqaluit In Nunavut A Canadian Arctic City</a></h4>
@@ -339,7 +355,7 @@ function Hotel() {
                             </div>
                             <div className="col-lg-4">
                                 <div className="blog-item set-bg">
-                                    <img src="rooms/blogs/barcilona.jpg" alt="Traveling To Barcelona" style={{ width: '100%', height: '350px', display: 'block' }} />
+                                    <img src="src/assets/imgs/rooms/blogs/barcilona.jpg" alt="Traveling To Barcelona" style={{ width: '100%', height: '350px', display: 'block' }} />
                                     <div className="bi-text">
                                         <Tag color="#dfa974">Travel</Tag>
                                         <h4><a href="#">Traveling To Barcelona</a></h4>

@@ -142,7 +142,7 @@ function Login() {
                         <div className="row">
                             <div className="col-12">
                                 <button type="button" className="btn btn-outline-secondary w-100 border border-white">
-                                    <img src="imgs/google.webp" alt="Google" width={30} height={30} className="me-2" />
+                                    <img src="src/assets/imgs/google.webp" alt="Google" width={30} height={30} className="me-2" />
                                     <b className='text-white'>Google</b>
                                 </button>
                             </div>
@@ -154,8 +154,6 @@ function Login() {
             <Modal show={show} onHide={handleClose} animation={false}>
                 <Modal.Header>
                     <h2 style={{textAlign:'center'}}>OTP Verification <br /> <span style={{fontSize:'16px'}}>Verify your One time password (otp)</span></h2>
-                    
-                    {/* <Modal.Title >OTP Verification <br /> <span style={{fontSize:'16px'}}>Verify your One time password (otp)</span></Modal.Title>    */}
                 </Modal.Header>
                 <Modal.Body>
                     <div className="d-flex justify-content-center">

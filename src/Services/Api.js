@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const apiClient = axios.create({
-    baseURL: 'https://hotel-booking-app-backend-ecru.vercel.app/api',
+  //  baseURL:'http://localhost:3000/api'
+   baseURL: 'https://hotel-booking-app-backend-ecru.vercel.app/api',
 });
 
 // --------------------------------------------------------------- Rooms --------------------------------------------------

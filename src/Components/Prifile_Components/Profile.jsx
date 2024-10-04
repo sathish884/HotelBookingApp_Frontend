@@ -77,8 +77,8 @@ function Profile() {
 
     return (
         <>
-            <div className="container-fluid mt-3 mb-5">
-                <div className='bs mx-5'>
+            <div className="container-fluid admin-section">
+                <div className='bs mx-5 my-5 booking-items'>
                     <h3 className='text-center mt-3'>{userDetails.role === 'admin' ? 'Admin Panel' : ''}</h3>
                     <div className="row justify-content-center w-100 mt-3 px-5" style={{ fontSize: '20px' }}>
                         <Tabs defaultActiveKey="1" items={items} />

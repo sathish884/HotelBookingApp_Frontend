@@ -67,6 +67,8 @@ function Booking() {
 
         try {
             setLoading(true)
+            console.log("booking", body);
+            
             await bookingRooms(body);
             setLoading(false);
             Swal.fire('Congratulation', 'Your room booked successfully', 'success').then(result => {
@@ -83,7 +85,7 @@ function Booking() {
             <div className="container booking-section">
 
 
-                <div className='m-5 booking-items'>
+                <div className='m-5 booking-section-items'>
                     {loading ? (
                         <Loader />
                     ) : error ? (

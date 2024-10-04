@@ -1,3 +1,4 @@
+
 :root {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
@@ -125,7 +126,7 @@ body {
 -----------------------*/
 
 .auth-page {
-    background-image: url('imgs/login-back.jpg');
+    background-image: url('src/assets/imgs/login-back.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -231,7 +232,7 @@ body {
 -----------------------*/
 
 .hotel-backimg {
-    background-image: url('imgs/background1.jpg');
+    background-image: url('src/assets/imgs/background1.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -299,7 +300,7 @@ body {
 
 .services-section {
     padding: 60px 0;
-    background-image: url('imgs/bg-1.jpg');
+    background-image: url('src/assets/imgs/bg-1.jpg');
     width: 100%;
     min-width: 100%;
     background-position: center;
@@ -445,7 +446,7 @@ body {
 
 .testimonial-section {
     background: #f5f5f5;
-    background-image: url('imgs/bg-3.webp');
+    background-image: url('src/assets/imgs/bg-3.webp');
     width: 100%;
     min-width: 100%;
     background-position: center;
@@ -649,7 +650,7 @@ body {
 
 .blog-section {
     padding-bottom: 0px 70px;
-    background-image: url('imgs/bg-4.jpg');
+    background-image: url('src/assets/imgs/bg-4.jpg');
     width: 100%;
     min-width: 100%;
     background-position: center;
@@ -955,7 +956,7 @@ body {
 -----------------------*/
 
 .booking-section {
-    background-image: url('imgs/booking.jpg');
+    background-image: url('src/assets/imgs/booking.jpg');
     width: 100%;
     min-width: 100%;
     background-position: center;
@@ -963,8 +964,8 @@ body {
     background-repeat: no-repeat;
 }
 
-.booking-items {
-    /* From https://css.glass */
+.booking-section-items{
+    
     background: rgba(255, 255, 255, 0.41);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -972,3 +973,20 @@ body {
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
+
+.booking-card {
+    background: #fff;
+    color: #282525;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.admin-section{
+    background-image: url('src/assets/imgs/admin3.jpg');
+    width: 100%;
+    min-width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+} 
