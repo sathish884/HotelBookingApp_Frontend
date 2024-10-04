@@ -44,7 +44,7 @@ function Login() {
                     if (redirectTo) {
                         navigate(redirectTo, { state: bookingDetails });
                     } else {
-                        window.location.href = '/hotel';
+                        window.location.href = 'hotel';
                     }
                 }
             } catch (error) {
