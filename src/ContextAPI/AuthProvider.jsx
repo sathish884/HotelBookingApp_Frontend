@@ -40,7 +40,7 @@ function AuthProvider({ children }) {
         sessionStorage.removeItem('userToken');
         sessionStorage.removeItem('userObj');
         sessionStorage.setItem('isUserLoggedIn', 'false');
-        window.location.href = '/hotel';
+        document.location.href = 'hotel';
     };
 
     return (

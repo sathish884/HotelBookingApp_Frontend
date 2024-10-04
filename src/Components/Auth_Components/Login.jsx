@@ -5,6 +5,7 @@ import { otpVerify } from '../../Services/Api';
 import Loader from '../../Utilits/Loader';
 import Error from '../../Utilits/Error';
 import { useAuth } from '../../ContextAPI/AuthProvider';
+import { TiDocumentDelete } from 'react-icons/ti';
 
 function Login() {
 
@@ -44,7 +45,7 @@ function Login() {
                     if (redirectTo) {
                         navigate(redirectTo, { state: bookingDetails });
                     } else {
-                        window.location.href = 'hotel';
+                        document.location.href = 'hotel';
                     }
                 }
             } catch (error) {
