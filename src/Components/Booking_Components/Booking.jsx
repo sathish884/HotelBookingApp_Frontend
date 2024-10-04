@@ -85,7 +85,7 @@ function Booking() {
             <div className="container booking-section">
 
 
-                <div className='m-5 booking-section-items'>
+                <div className='m-5 booking-section-items' style={{border: '1px solid'}}>
                     {loading ? (
                         <Loader />
                     ) : error ? (

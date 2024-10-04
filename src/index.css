@@ -126,7 +126,7 @@ body {
 -----------------------*/
 
 .auth-page {
-    background-image: url('src/assets/login-back.jpg');
+    background-image: url('https://media.dayuse.com/hotels/17795/32987afb1c4ba056066bdd8f9fe13225-hotel-amano-covent-garden.jpg?frz-w=3840&frz-fit=cover');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -232,7 +232,7 @@ body {
 -----------------------*/
 
 .hotel-backimg {
-    background-image: url('src/assets/background1.jpg');
+    background-image: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGhvdGVsfGVufDB8fDB8fHww');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -300,7 +300,7 @@ body {
 
 .services-section {
     padding: 60px 0;
-    background-image: url('src/assets/bg-1.jpg');
+    background-image: url('https://t3.ftcdn.net/jpg/03/65/64/88/360_F_365648888_nTq9Cajc4e984ifdRAp5Q77KGkGFccgF.jpg');
     width: 100%;
     min-width: 100%;
     background-position: center;
@@ -446,7 +446,7 @@ body {
 
 .testimonial-section {
     background: #f5f5f5;
-    background-image: url('src/assets/bg-3.webp');
+    background-image: url('https://t4.ftcdn.net/jpg/03/19/90/41/360_F_319904166_HnoG6lK0WquFM1ScoSc2ezkZsFr38xeG.jpg');
     width: 100%;
     min-width: 100%;
     background-position: center;
@@ -650,7 +650,7 @@ body {
 
 .blog-section {
     padding-bottom: 0px 70px;
-    background-image: url('src/assets/bg-4.jpg');
+    background-image: url('https://static.vecteezy.com/system/resources/previews/012/184/489/original/background-design-for-power-point-suitable-for-panda-ppt-background-free-vector.jpg');
     width: 100%;
     min-width: 100%;
     background-position: center;
@@ -956,7 +956,7 @@ body {
 -----------------------*/
 
 .booking-section {
-    background-image: url('src/assets/booking.jpg');
+    background-image: url('https://image.slidesdocs.com/responsive-images/background/gradient-yellow-texture-business-splice-creative-powerpoint-background_c26d8146ee__960_540.jpg');
     width: 100%;
     min-width: 100%;
     background-position: center;
@@ -983,7 +983,7 @@ body {
 }
 
 .admin-section{
-    background-image: url('src/assets/admin3.jpg');
+    background-image: url('https://t4.ftcdn.net/jpg/08/01/61/83/360_F_801618323_uQ9REJGMxfmkf90h2QODWDl0VillinI6.jpg');
     width: 100%;
     min-width: 100%;
     background-position: center;

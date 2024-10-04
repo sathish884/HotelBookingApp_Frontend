@@ -181,7 +181,7 @@ function Hotel() {
                                 <div className="about-pic">
                                     <div className="row">
                                         <div className="col-sm-6">
-                                            <img src="src/assets/hotel-img.jpg" alt="Hotel Image" />
+                                            <img src="https://wallpaperaccess.com/full/2690549.jpg" alt="Hotel Image" />
                                         </div>
                                     </div>
                                 </div>
@@ -285,15 +285,15 @@ function Hotel() {
                             <div className="col-lg-12">
                                 <div className="section-title">
                                     <span style={{ fontSize: '17px', color: '#df750e' }}>Hotel News</span>
-                                    <h2>Stay Updated with Our Latest News & Events</h2>
-                                    <p>Explore our blog for the latest updates, travel tips, and exclusive hotel events. Stay informed about special promotions, upcoming celebrations, and insider insights on making the most of your stay with us.</p>
+                                    <h2 className='text-white'>Stay Updated with Our Latest News & Events</h2>
+                                    <p className='text-white'>Explore our blog for the latest updates, travel tips, and exclusive hotel events. Stay informed about special promotions, upcoming celebrations, and insider insights on making the most of your stay with us.</p>
                                 </div>
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-lg-4 mb-3">
                                 <div className="blog-item set-bg">
-                                    <img src="src/assets/tremplant.jpg" alt="Tremblant In Canada" style={{ width: '100%', height: '350px', display: 'block' }} />
+                                    <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/319253927.jpg?k=92ef7f39c09822704831bb930dfa91c6dab27f8faff815d69624c9c9b185d9a9&o=&hp=1" alt="Tremblant In Canada" style={{ width: '100%', height: '350px', display: 'block' }} />
                                     <div className="bi-text">
                                         <Tag color="#dfa974">Travel Trip</Tag>
                                         <h4><a href="#">Tremblant In Canada</a></h4>
@@ -304,7 +304,7 @@ function Hotel() {
                             </div>
                             <div className="col-lg-4 mb-3">
                                 <div className="blog-item set-bg">
-                                    <img src="src/assets/carvan.jpg" alt="Choosing A Static Caravan" style={{ width: '100%', height: '350px', display: 'block' }} />
+                                    <img src="https://www.westcountryresorts.co.uk/wp-content/uploads/2020/02/AdobeStock_24045375.jpeg" alt="Choosing A Static Caravan" style={{ width: '100%', height: '350px', display: 'block' }} />
                                     <div className="bi-text">
                                         <Tag color="#dfa974">Camping</Tag>
                                         <h4><a href="#">Choosing A Static Caravan</a></h4>
@@ -315,7 +315,7 @@ function Hotel() {
                             </div>
                             <div className="col-lg-4">
                                 <div className="blog-item set-bg">
-                                    <img src="src/assets/cooper1.jpg" alt="Copper Canyon" style={{ width: '100%', height: '350px', display: 'block' }} />
+                                    <img src="https://media.tacdn.com/media/attractions-splice-spp-674x446/12/3f/b2/e0.jpg" alt="Copper Canyon" style={{ width: '100%', height: '350px', display: 'block' }} />
                                     <div className="bi-text">
                                         <Tag color="#dfa974">Event</Tag>
                                         <h4><a href="#">Copper Canyon</a></h4>
@@ -328,7 +328,7 @@ function Hotel() {
                         <div className="row mt-3">
                             <div className="col-lg-8 mb-3">
                                 <div className="blog-item set-bg">
-                                    <img src="src/assets/nunavut1.jpg" alt="Trip To Iqaluit" style={{ width: '100%', height: '350px', display: 'block' }} />
+                                    <img src="https://i.cdn.newsbytesapp.com/images/l41420240423124736.jpeg" style={{ width: '100%', height: '350px', display: 'block' }} />
                                     <div className="bi-text">
                                         <Tag color="#dfa974">Travel Event</Tag>
                                         <h4><a href="#">Trip To Iqaluit In Nunavut A Canadian Arctic City</a></h4>
@@ -339,7 +339,7 @@ function Hotel() {
                             </div>
                             <div className="col-lg-4">
                                 <div className="blog-item set-bg">
-                                    <img src="src/assets/barcilona.jpg" alt="Traveling To Barcelona" style={{ width: '100%', height: '350px', display: 'block' }} />
+                                    <img src="https://secure.s.forbestravelguide.com/img/destinations/Barcelona-CreditMasterLu-iStock.jpg" alt="Traveling To Barcelona" style={{ width: '100%', height: '350px', display: 'block' }} />
                                     <div className="bi-text">
                                         <Tag color="#dfa974">Travel</Tag>
                                         <h4><a href="#">Traveling To Barcelona</a></h4>
