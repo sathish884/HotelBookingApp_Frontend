@@ -39,7 +39,7 @@ function Register() {
     const [registerData, setRegisterData] = useState({
         name: '',
         email: '',
-        mobilenumber:'',
+        mobilenumber: '',
         password: '',
         confirmPassword: ''
     });
@@ -60,14 +60,14 @@ function Register() {
             setRegisterData({
                 name: '',
                 email: '',
-                mobilenumber:'',
+                mobilenumber: '',
                 password: '',
                 confirmPassword: ''
             });
             navigate('/login')
         } catch (error) {
             setLoading(false);
-            setError(err.response.data);
+            setError(error);
             console.log(error.message);
         }
 
@@ -78,8 +78,8 @@ function Register() {
 
             <div className="container d-flex justify-content-center align-items-center p-3 auth-page" style={{ minHeight: '60vh' }}>
                 {loading && (<Loader />)}
-                {error && (<Error />)}
                 <div className="row d-flex justify-content-center align-item-center w-100" style={{ flexDirection: 'column' }}>
+                    {error && (<Error error={error} />)}
                     <div className="card p-5 mx-auto auth-card" style={{ maxWidth: '35rem' }}>
                         <h5 className='text-center text-white'>Register</h5>
                         <form onSubmit={handleRegister}>

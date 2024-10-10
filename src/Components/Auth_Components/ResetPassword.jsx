@@ -23,7 +23,7 @@ function ResetPassword() {
             navigate('/login');
         } catch (err) {
             setLoading(false)
-            setError(err.response.data)
+            setError(err)
             console.error('Reset Password Error:', err.response?.data?.message || 'Failed to reset password');
         }
     };

@@ -20,17 +20,18 @@ function AuthProvider({ children }) {
         setError(null);
         try {
             // Assume loginUser is your API call
+            setLoading(true);
             const response = await loginUser(loginData);
             setIsLoggedIn(true);
+            setLoading(false);
             setUser(response.data.user); // Adjust based on your response
-            sessionStorage.setItem('userToken', response.data.token);
-            return response.data;
+           // sessionStorage.setItem('userToken', response.data.token);
+          //  return response.data;
         } catch (err) {
-            setError(err.response.data);
+            setLoading(false);
+            setError(err);
             setIsLoggedIn(false);
             throw err;
-        } finally {
-            setLoading(false);
         }
     };
 

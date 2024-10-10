@@ -39,18 +39,15 @@ function Login() {
                     sessionStorage.setItem('isUserLoggedIn', 'true');
                     sessionStorage.setItem('userObj', JSON.stringify(response.data.data));
                     sessionStorage.setItem('userToken', JSON.stringify(response.data.token));
-
                     setShow(false);
-
                     if (redirectTo) {
                         navigate(redirectTo, { state: bookingDetails });
                     } else {
-                        document.location.href = 'hotel';
+                        window.location.href = '/hotel';
                     }
                 }
             } catch (error) {
-                console.log(error.message);
-                setError(error.response);
+                setError(error);
             }
         }
     };
@@ -85,8 +82,6 @@ function Login() {
         e.preventDefault();
         try {
             const response = await login(loginData);
-            console.log("response", response);
-
             if (response && response.otp) {
                 setResOtp(response.otp);
                 setShow(true);
@@ -153,7 +148,7 @@ function Login() {
 
             <Modal show={show} onHide={handleClose} animation={false}>
                 <Modal.Header>
-                    <h2 style={{textAlign:'center'}}>OTP Verification <br /> <span style={{fontSize:'16px'}}>Verify your One time password (otp)</span></h2>
+                    <h2 style={{ textAlign: 'center' }}>OTP Verification <br /> <span style={{ fontSize: '16px' }}>Verify your One time password (otp)</span></h2>
                 </Modal.Header>
                 <Modal.Body>
                     <div className="d-flex justify-content-center">

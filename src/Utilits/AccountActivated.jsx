@@ -17,7 +17,7 @@ function AccountActivated() {
                 setMessage(response.data.message);
                 setTimeout(() => {
                     navigate('/login');
-                }, 3000); // Redirect to login page after 3 seconds
+                }, 2000); // Redirect to login page after 2 seconds
             } catch (err) {
                 setError(err.response.data.message || 'Something went wrong');
             }
